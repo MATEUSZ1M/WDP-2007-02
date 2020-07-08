@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './ProductImg.module.scss';
+import { products } from '../../../redux/initialState';
 
 const ProductImg = () => {
   return (

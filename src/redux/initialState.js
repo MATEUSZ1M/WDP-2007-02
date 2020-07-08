@@ -15,6 +15,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
+      img: 'https://i.postimg.cc/YqfcRBzP/bristique-2.jpg',
     },
     {
       id: 'aenean-ru-bristique-2',
