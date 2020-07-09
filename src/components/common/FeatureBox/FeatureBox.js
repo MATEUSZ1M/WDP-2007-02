@@ -8,9 +8,11 @@ import styles from './FeatureBox.module.scss';
 const FeatureBox = ({ active, icon, children }) => (
   <div className={styles.root + (active ? ' ' + styles.active : '')}>
     {icon && (
-      <div className={styles.iconWrapper}>
-        <FontAwesomeIcon className={styles.icon} icon={icon} />
-      </div>
+      <a href='#' target='_blank'>
+        <div className={styles.iconWrapper}>
+          <FontAwesomeIcon className={styles.icon} icon={icon} />
+        </div>
+      </a>
     )}
     <div className={styles.content}>{children}</div>
   </div>

@@ -11,14 +11,26 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 
-const ProductBox = ({ name, price, promo, stars, img }) => (
+const ProductBox = ({
+  id,
+  name,
+  price,
+  promo,
+  stars,
+  img,
+  wishlist,
+  compare,
+  ...props
+}) => (
   <div className={styles.root}>
     <div className={styles.photo}>
       {promo && <div className={styles.sale}>{promo}</div>}
       <img alt={name} src={img} />
       <div className={styles.buttons}>
-        <Button variant='small'>Quick View</Button>
-        <Button variant='small'>
+        <Button className={styles.options} variant='small'>
+          Quick View
+        </Button>
+        <Button className={styles.options} variant='small'>
           <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
         </Button>
       </div>
@@ -40,15 +52,19 @@ const ProductBox = ({ name, price, promo, stars, img }) => (
     <div className={styles.line}></div>
     <div className={styles.actions}>
       <div className={styles.outlines}>
-        <Button variant='outline'>
+        <Button
+          variant={wishlist ? 'outline__checked' : 'outline'}
+          onClick={() => props.changeWishlist(id)}
+          className={wishlist ? styles.wishlist : null}
+        >
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
-        <Button variant='outline'>
+        <Button variant={compare ? 'outline__checked' : 'outline'}>
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
         </Button>
       </div>
       <div className={styles.price}>
-        <Button noHover variant='small'>
+        <Button className={styles.priceBtn} noHover variant='small'>
           $ {price}
         </Button>
       </div>
@@ -63,6 +79,10 @@ ProductBox.propTypes = {
   promo: PropTypes.string,
   stars: PropTypes.number,
   img: PropTypes.string,
+  wishlist: PropTypes.bool,
+  compare: PropTypes.bool,
+  id: PropTypes.string,
+  changeWishlist: PropTypes.func,
 };
 
 export default ProductBox;
