@@ -26,13 +26,18 @@
   font-weight: 400;
 }
 
-.outline {
+.outline, .outline__checked {
   display: inline-block;
   padding: 5px 10px;
   border: 1px solid #2a2a2a;
   color: #2a2a2a;
   font-size: 13px;
   line-height: 22px;
+
+  &__checked {
+    background-color: #2a2a2a;
+    color: #ffffff;
+  }
 
   &:not(.noHover):hover {
     background-color: #2a2a2a;
