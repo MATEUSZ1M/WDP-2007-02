@@ -60,39 +60,55 @@ class NewFurniture extends React.Component {
       );
     }
 
+    const swipeContent = [];
+    for (let page = 0; page < pagesCount; page++) {
+      swipeContent.push(
+        <div className='row ml-0'>
+          {categoryProducts.slice(page * 8, (page + 1) * 8).map(item => (
+            <div key={item.id} className='col-3'>
+              <ProductBox {...item} />
+            </div>
+          ))}
+        </div>
+      );
+    }
+
     return (
-      <Swipeable
-        leftAction={() => this.handleLeftAction(pagesCount)}
-        rightAction={this.handleRightAction}
-        activePage={this.state.activePage}
-      >
-        <div className={styles.root}>
-          <div className='container'>
-            <div className={styles.panelBar}>
-              <div className='row no-gutters align-items-end'>
-                <div className={'col-auto ' + styles.heading}>
-                  <h3>New furniture</h3>
-                </div>
-                <div className={'col ' + styles.menu}>
-                  <ul>
-                    {categories.map(item => (
-                      <li key={item.id}>
-                        <a
-                          className={item.id === activeCategory && styles.active}
-                          onClick={() => this.handleCategoryChange(item.id)}
-                        >
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className={'col-auto ' + styles.dots}>
-                  <ul>{dots}</ul>
-                </div>
+      <div className={styles.root}>
+        <div className='container'>
+          <div className={styles.panelBar}>
+            <div className='row no-gutters align-items-end'>
+              <div className={'col-auto ' + styles.heading}>
+                <h3>New furniture</h3>
+              </div>
+              <div className={'col ' + styles.menu}>
+                <ul>
+                  {categories.map(item => (
+                    <li key={item.id}>
+                      <a
+                        className={item.id === activeCategory && styles.active}
+                        onClick={() => this.handleCategoryChange(item.id)}
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className={'col-auto ' + styles.dots}>
+                <ul>{dots}</ul>
               </div>
             </div>
-            <div className='row'>
+          </div>
+          <Swipeable
+            row={4}
+            column={2}
+            leftAction={() => this.handleLeftAction(pagesCount)}
+            rightAction={this.handleRightAction}
+            className='d-flex'
+          >
+            {/* {swipeContent} */}
+            {/* <div className='row'>
               {categoryProducts
                 .slice(activePage * 8, (activePage + 1) * 8)
                 .map(item => (
@@ -100,10 +116,16 @@ class NewFurniture extends React.Component {
                     <ProductBox {...item} />
                   </div>
                 ))}
-            </div>
-          </div>
+            </div> */}
+
+            {categoryProducts.map(item => (
+              <div key={item.id}>
+                <ProductBox {...item} />
+              </div>
+            ))}
+          </Swipeable>
         </div>
-      </Swipeable>
+      </div>
     );
   }
 }
