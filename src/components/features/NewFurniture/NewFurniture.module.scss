@@ -50,7 +50,8 @@
             display: block;
 
             &.active,
-            &:hover {              
+            &:hover {
+              @extend %hover;
               &::before {
                 content: "";
                 position: absolute;
@@ -93,7 +94,6 @@
             &:hover {
               @extend %hover;
               background-color: $primary;
-
             }
           }
         }
