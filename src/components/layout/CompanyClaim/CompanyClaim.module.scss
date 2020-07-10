@@ -70,7 +70,7 @@
 
       &:hover {
         .cartIcon {
-          background-color: lighten($primary, 10%);
+          background-color: $cartBox-lighten;
         }
       }
     }
