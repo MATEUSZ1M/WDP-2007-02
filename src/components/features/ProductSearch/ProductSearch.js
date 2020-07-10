@@ -11,10 +11,6 @@ const ProductSearch = () => (
     <div className={styles.category}>
       <FontAwesomeIcon className={styles.icon} icon={faListUl} />
 
-      {/*<select name='' id=''>
-        <option value=''>Select a category</option>
-      </select> */}
-
       <ul className={styles.menu}>
         <li>
           <span>Select category</span>
