@@ -15,7 +15,10 @@
       repeat: no-repeat;
     }
     overflow: hidden;
-    align-items: flex-end;
+		align-items: flex-end;
+		&:hover .buttons .options {
+      opacity: 1;
+    }
 
     .sale {
       position: absolute;
@@ -30,7 +33,10 @@
 
     .buttons {
       display: flex;
-      justify-content: space-between;
+			justify-content: space-between;
+			.options {
+        opacity: 0;
+      }
     }
 
     img{
@@ -80,5 +86,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+	}
+	&:hover  {
+    .photo ~ .actions .price .priceBtn {
+        background-color: $primary;
+    }
   }
+
+  .wishlist{
+    background-color: $primary;
+  }
+
 }
+
+
