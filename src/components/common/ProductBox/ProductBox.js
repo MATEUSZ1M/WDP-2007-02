@@ -54,7 +54,10 @@ const ProductBox = ({
       <div className={styles.outlines}>
         <Button
           variant={wishlist ? 'outline__checked' : 'outline'}
-          onClick={() => props.changeWishlist(id)}
+          onClick={event => {
+            event.preventDefault();
+            return props.changeWishlist(id);
+          }}
           className={wishlist ? styles.wishlist : null}
         >
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
