@@ -11,25 +11,13 @@ class NewFurniture extends React.Component {
     activeCategory: 'bed',
   };
 
-  handlePageChange(newPage) {
+  handlePageChange = newPage => {
     this.setState({ activePage: newPage });
-  }
+  };
 
   handleCategoryChange(newCategory) {
     this.setState({ activeCategory: newCategory });
   }
-
-  handleRightAction = dir => {
-    this.setState(prevState => ({
-      activePage: prevState.activePage - 1,
-    }));
-  };
-
-  handleLeftAction = pagesCount => {
-    this.setState(prevState => ({
-      activePage: prevState.activePage + 1,
-    }));
-  };
 
   render() {
     const { categories, products } = this.props;
@@ -93,8 +81,8 @@ class NewFurniture extends React.Component {
             </div>
           </div>
           <Swipeable
-            leftAction={() => this.handleLeftAction(pagesCount)}
-            rightAction={this.handleRightAction}
+            activePage={this.state.activePage}
+            pageChange={this.handlePageChange}
           >
             {swipeContent}
           </Swipeable>
