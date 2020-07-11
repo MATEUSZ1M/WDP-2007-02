@@ -16,10 +16,6 @@
     }
     overflow: hidden;
     align-items: flex-end;
-    &:hover .buttons .options {
-      @extend %hover;
-      opacity: 1;
-    }
 
     .sale {
       position: absolute;
@@ -89,7 +85,12 @@
     align-items: center;
   }
   &:hover {
-    .photo ~ .actions .price .priceBtn {
+    .buttons .options {
+      @extend %hover;
+      opacity: 1;
+    }
+
+    .actions .price .priceBtn {
       @extend %hover;
       background-color: $primary;
     }
