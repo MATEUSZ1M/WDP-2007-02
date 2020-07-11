@@ -98,4 +98,12 @@
   .wishlist {
     background-color: $primary;
   }
+  
+  .oldPrice {
+    text-decoration: line-through;
+    font-style: italic;
+    margin-left: auto;
+    padding-right: ($base-padding / 2);
+    font-weight: 300;
+  }
 }
