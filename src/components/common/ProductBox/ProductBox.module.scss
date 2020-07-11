@@ -15,8 +15,9 @@
       repeat: no-repeat;
     }
     overflow: hidden;
-		align-items: flex-end;
-		&:hover .buttons .options {
+    align-items: flex-end;
+    &:hover .buttons .options {
+      @extend %hover;
       opacity: 1;
     }
 
@@ -33,13 +34,13 @@
 
     .buttons {
       display: flex;
-			justify-content: space-between;
-			.options {
+      justify-content: space-between;
+      .options {
         opacity: 0;
       }
     }
 
-    img{
+    img {
       width: 100%;
       height: 200px;
       object-fit: cover;
@@ -86,17 +87,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-	}
-	&:hover  {
+  }
+  &:hover {
     .photo ~ .actions .price .priceBtn {
-        background-color: $primary;
+      @extend %hover;
+      background-color: $primary;
     }
   }
 
-  .wishlist{
+  .wishlist {
     background-color: $primary;
   }
-
+  
   .oldPrice {
     text-decoration: line-through;
     font-style: italic;
@@ -104,7 +106,4 @@
     padding-right: ($base-padding / 2);
     font-weight: 300;
   }
-
 }
-
-
