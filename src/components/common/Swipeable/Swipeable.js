@@ -3,22 +3,18 @@ import PropTypes from 'prop-types';
 import Swiper from 'react-id-swiper';
 import 'swiper/swiper.scss';
 
-import style from './Swipeable.moule.scss';
-
 const Swipeable = props => {
   const params = {
     direction: 'horizontal',
     centeredSlides: false,
-    slidesPerView: 4,
-    slidesPerColumn: 2,
     spaceBetween: 30,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
   };
 
-  return (
-    <Swiper classname={style.swipeable} {...params}>
-      {props.children}
-    </Swiper>
-  );
+  return <Swiper {...params}>{props.children}</Swiper>;
 };
 
 Swipeable.propTypes = {
@@ -28,6 +24,7 @@ Swipeable.propTypes = {
   activePage: PropTypes.number,
   row: PropTypes.number,
   column: PropTypes.number,
+  setActivePage: PropTypes.func,
 };
 
 export default Swipeable;

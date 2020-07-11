@@ -39,6 +39,12 @@ class NewFurniture extends React.Component {
     });
   };
 
+  setActivePage = activePage => {
+    this.setState({
+      activePage: activePage,
+    });
+  };
+
   render() {
     const { categories, products } = this.props;
     const { activeCategory, activePage } = this.state;
@@ -63,7 +69,7 @@ class NewFurniture extends React.Component {
     const swipeContent = [];
     for (let page = 0; page < pagesCount; page++) {
       swipeContent.push(
-        <div className='row ml-0'>
+        <div key={page} className='row ml-0'>
           {categoryProducts.slice(page * 8, (page + 1) * 8).map(item => (
             <div key={item.id} className='col-3'>
               <ProductBox {...item} />
@@ -101,13 +107,11 @@ class NewFurniture extends React.Component {
             </div>
           </div>
           <Swipeable
-            row={4}
-            column={2}
             leftAction={() => this.handleLeftAction(pagesCount)}
             rightAction={this.handleRightAction}
-            className='d-flex'
+            setActivePage={this.setActivePage}
           >
-            {/* {swipeContent} */}
+            {swipeContent}
             {/* <div className='row'>
               {categoryProducts
                 .slice(activePage * 8, (activePage + 1) * 8)
@@ -117,12 +121,6 @@ class NewFurniture extends React.Component {
                   </div>
                 ))}
             </div> */}
-
-            {categoryProducts.map(item => (
-              <div key={item.id}>
-                <ProductBox {...item} />
-              </div>
-            ))}
           </Swipeable>
         </div>
       </div>
