@@ -51,6 +51,7 @@
 
             &.active,
             &:hover {
+              @extend %hover;
               &::before {
                 content: "";
                 position: absolute;
@@ -91,6 +92,7 @@
 
             &.active,
             &:hover {
+              @extend %hover;
               background-color: $primary;
             }
           }

@@ -4,15 +4,16 @@
 // }
 
 .main {
-  background-color: #2a2a2a;
-  color: #ffffff;
+  background-color: $text-color;
+  color: $color-light;
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
   padding: 10px 30px;
 
   &:not(.noHover):hover {
-    color: #ffffff !important;
+    @extend %hover;
+    color: $color-light !important;
     background-color: $primary;
     text-decoration: none;
   }
@@ -26,16 +27,25 @@
   font-weight: 400;
 }
 
-.outline {
+.outline, .outline__checked {
   display: inline-block;
   padding: 5px 10px;
-  border: 1px solid #2a2a2a;
-  color: #2a2a2a;
+  border: 1px solid $text-color;
+  color: $text-color;
   font-size: 13px;
   line-height: 22px;
+  margin-right: 5px;
+
+  &__checked {
+    border-color: $primary;
+    background-color: $primary;
+    color:$color-light;
+  }
 
   &:not(.noHover):hover {
-    background-color: #2a2a2a;
-    color: #ffffff;
+    @extend %hover;
+    background-color: $text-color;
+    color: $color-light;
+    border-color: $text-color;
   }
 }
