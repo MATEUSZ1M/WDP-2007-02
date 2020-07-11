@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
-import ProductBox from '../../common/ProductBox/ProductBox';
+import ProductBox from '../../common/ProductBox/ProductBoxContainer';
 import Swipeable from '../../common/Swipeable/Swipeable';
 
 class NewFurniture extends React.Component {
@@ -20,29 +20,15 @@ class NewFurniture extends React.Component {
   }
 
   handleRightAction = dir => {
-    this.setState(prevState => {
-      if (prevState.activePage > 0) {
-        return {
-          activePage: prevState.activePage - 1,
-        };
-      }
-    });
+    this.setState(prevState => ({
+      activePage: prevState.activePage - 1,
+    }));
   };
 
   handleLeftAction = pagesCount => {
-    this.setState(prevState => {
-      if (prevState.activePage < pagesCount - 1) {
-        return {
-          activePage: prevState.activePage + 1,
-        };
-      }
-    });
-  };
-
-  setActivePage = activePage => {
-    this.setState({
-      activePage: activePage,
-    });
+    this.setState(prevState => ({
+      activePage: prevState.activePage + 1,
+    }));
   };
 
   render() {
@@ -109,18 +95,8 @@ class NewFurniture extends React.Component {
           <Swipeable
             leftAction={() => this.handleLeftAction(pagesCount)}
             rightAction={this.handleRightAction}
-            setActivePage={this.setActivePage}
           >
             {swipeContent}
-            {/* <div className='row'>
-              {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
-                .map(item => (
-                  <div key={item.id} className='col-3'>
-                    <ProductBox {...item} />
-                  </div>
-                ))}
-            </div> */}
           </Swipeable>
         </div>
       </div>

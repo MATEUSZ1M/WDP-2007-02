@@ -5,12 +5,15 @@ import 'swiper/swiper.scss';
 
 const Swipeable = props => {
   const params = {
-    direction: 'horizontal',
-    centeredSlides: false,
     spaceBetween: 30,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
+    grabCursor: true,
+    on: {
+      slideNextTransitionEnd: () => {
+        props.leftAction();
+      },
+      slidePrevTransitionEnd: () => {
+        props.rightAction();
+      },
     },
   };
 
@@ -21,10 +24,6 @@ Swipeable.propTypes = {
   children: PropTypes.node,
   leftAction: PropTypes.func,
   rightAction: PropTypes.func,
-  activePage: PropTypes.number,
-  row: PropTypes.number,
-  column: PropTypes.number,
-  setActivePage: PropTypes.func,
 };
 
 export default Swipeable;
