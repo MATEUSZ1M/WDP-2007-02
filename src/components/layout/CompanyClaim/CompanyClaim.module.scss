@@ -76,4 +76,46 @@
       }
     }
   }
+
+  @media (max-width: $tablet-breakpoint) {
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      padding-top: 10px;
+      column-gap: 40px;
+      grid-template-areas: 
+        "logo cart" 
+        "logo phone";
+    }
+
+    .logo {
+      grid-area: logo;
+      margin-top: 5px;
+      align-self: start;
+      
+      img {
+        height: 85px;
+      }
+    }
+
+    .phoneNumber {
+      grid-area: phone;
+      align-self: start;
+      
+      p {
+        font-size: 14px;
+
+        .icon {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .cart {
+      
+      grid-area: cart;
+      text-align: left;
+    }
+  }
 }

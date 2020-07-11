@@ -2,6 +2,7 @@
 
 .root {
   background-color: $header-topbar-bg;
+  padding: 10px;
 
   ul {
     list-style: none;
@@ -38,6 +39,16 @@
 
     .icon {
       margin-right: 5px;
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    .topMenu, .topOptions {
+      padding: 0;
+    }
+
+    .topMenu span {
+      display: none;
     }
   }
 }
