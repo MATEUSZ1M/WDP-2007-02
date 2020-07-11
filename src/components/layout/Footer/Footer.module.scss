@@ -23,6 +23,7 @@
             color: $footer-text;
 
             &:hover {
+              @extend %hover;
               color: $color-light;
             }
           }
@@ -72,6 +73,7 @@
             text-decoration: none;
 
             &:hover {
+              @extend %hover;
               color: $primary;
             }
           }

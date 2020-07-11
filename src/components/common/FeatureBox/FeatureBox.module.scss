@@ -11,9 +11,11 @@
         justify-content: center;
         align-items: center;
         &:hover .icon {
+            @extend %hover;
             color: $color-light;
         }
         &:hover::after {
+            @extend %hover;
             background-color: $primary;
             border-color: $primary;
         }

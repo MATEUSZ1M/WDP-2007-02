@@ -38,6 +38,7 @@
 
       &:hover,
       &.active {
+        @extend %hover;
         background-color: $primary;
         color: $color-light;
         border-color: $primary;

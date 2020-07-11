@@ -54,3 +54,10 @@ $cart-counter-color: $hawkesBlue;
 $cartBox-lighten: $lightOrange;
 
 $menuBar-box-shadow: $black;
+
+/* SETTINGS */
+
+%hover {
+  transition: ease 250ms;
+}
+
