@@ -12,7 +12,7 @@
       margin: 0;
       font-size: 17px;
       line-height: 42px;
-      color: rgb(216, 216, 216);
+      color: $phone-number;
       font-weight: 500;
 
       .icon {
@@ -29,7 +29,7 @@
     .cartBox {
       display: inline-block;
       position: relative;
-      color: #ffffff;  
+      color: $cartBox-color;  
 
       .cartIcon {
         background-color: $primary;
@@ -55,7 +55,7 @@
         align-items: center;
         justify-content: center;
         font-size: 14px;
-        color: rgb(224, 227, 237);
+        color: $cart-counter-color;
         position: absolute;
         top: 50%;
         right: 0;
@@ -71,9 +71,51 @@
       &:hover {
         @extend %hover;
         .cartIcon {
-          background-color: lighten($primary, 10%);
+          background-color: $cartBox-lighten;
         }
       }
+    }
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      padding-top: 10px;
+      column-gap: 40px;
+      grid-template-areas: 
+        "logo cart" 
+        "logo phone";
+    }
+
+    .logo {
+      grid-area: logo;
+      margin-top: 5px;
+      align-self: start;
+      
+      img {
+        height: 85px;
+      }
+    }
+
+    .phoneNumber {
+      grid-area: phone;
+      align-self: start;
+      
+      p {
+        font-size: 14px;
+
+        .icon {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .cart {
+      
+      grid-area: cart;
+      text-align: left;
     }
   }
 }
