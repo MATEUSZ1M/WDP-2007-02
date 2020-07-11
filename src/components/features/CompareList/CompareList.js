@@ -28,7 +28,7 @@ class CompareList extends React.Component {
             </Button>
           </div>
         ))}
-        <div className={styles.button_compare}>
+        <div className={styles.buttonCompare}>
           <Button variant='main'>COMPARE PRODUCTS</Button>
         </div>
       </div>
