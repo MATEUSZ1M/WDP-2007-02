@@ -7,7 +7,7 @@ const Swipeable = props => {
   const swiperRef = useRef(null);
 
   useEffect(() => {
-    if (swiperRef.current.swiper) {
+    if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideTo(props.activePage, 400);
     }
   });
@@ -16,8 +16,11 @@ const Swipeable = props => {
     spaceBetween: 30,
     grabCursor: true,
     on: {
-      slideChangeTransitionStart: () => {
-        props.pageChange(swiperRef.current.swiper.activeIndex);
+      slidePrevTransitionStart: () => {
+        props.rightAction(swiperRef.current.swiper.activeIndex);
+      },
+      slideNextTransitionStart: () => {
+        props.leftAction(swiperRef.current.swiper.activeIndex);
       },
     },
   };
@@ -31,7 +34,8 @@ const Swipeable = props => {
 
 Swipeable.propTypes = {
   children: PropTypes.node,
-  pageChange: PropTypes.func,
+  rightAction: PropTypes.func,
+  leftAction: PropTypes.func,
   activePage: PropTypes.func,
 };
 
