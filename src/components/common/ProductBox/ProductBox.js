@@ -20,6 +20,7 @@ const ProductBox = ({
   img,
   wishlist,
   compare,
+  oldPrice,
   ...props
 }) => (
   <div className={styles.root}>
@@ -58,14 +59,20 @@ const ProductBox = ({
             event.preventDefault();
             return props.changeWishlist(id);
           }}
-          className={wishlist ? styles.wishlist : null}
         >
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
-        <Button variant={compare ? 'outline__checked' : 'outline'}>
+        <Button
+          variant={compare ? 'outline__checked' : 'outline'}
+          onClick={event => {
+            event.preventDefault();
+            return props.changeCompareList(id);
+          }}
+        >
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
         </Button>
       </div>
+      <div className={styles.oldPrice}>{oldPrice && <span>$ {oldPrice}</span>}</div>
       <div className={styles.price}>
         <Button className={styles.priceBtn} noHover variant='small'>
           $ {price}
@@ -79,6 +86,7 @@ ProductBox.propTypes = {
   children: PropTypes.node,
   name: PropTypes.string,
   price: PropTypes.number,
+  oldPrice: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
   img: PropTypes.string,
@@ -86,6 +94,7 @@ ProductBox.propTypes = {
   compare: PropTypes.bool,
   id: PropTypes.string,
   changeWishlist: PropTypes.func,
+  changeCompareList: PropTypes.func,
 };
 
 export default ProductBox;

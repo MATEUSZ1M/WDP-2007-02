@@ -1,34 +1,29 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  background-color: #ffffff;
-  border: 1px solid #e1e1e1;
-  margin-bottom: 2rem;
+  background-color: $color-light;
+  border: 1px solid $productbox-border;
 
   .photo {
     position: relative;
     padding: 10px;
     background: {
-      color: #f4f5f7;
+      color: $productbox-photo-bg;
       size: contain;
       position: center;
       repeat: no-repeat;
     }
     overflow: hidden;
     align-items: flex-end;
-    &:hover .buttons .options {
-      @extend %hover;
-      opacity: 1;
-    }
 
     .sale {
       position: absolute;
       top: -30px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #292929;
+      background-color: $productbox-sale-bg;
       border-radius: 50%;
-      color: #ffffff;
+      color: $color-light;
       padding: 30px 15px 5px 15px;
     }
 
@@ -37,6 +32,7 @@
       justify-content: space-between;
       .options {
         opacity: 0;
+        font-size: 12px;
       }
     }
 
@@ -61,14 +57,14 @@
     .stars {
       a {
         text-decoration: none;
-        color: rgb(42, 42, 42);
+        color: $text-color;
       }
     }
   }
 
   .line {
     margin: 0 10px;
-    border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid $productBox-line;
     position: relative;
 
     &::before {
@@ -89,7 +85,12 @@
     align-items: center;
   }
   &:hover {
-    .photo ~ .actions .price .priceBtn {
+    .buttons .options {
+      @extend %hover;
+      opacity: 1;
+    }
+
+    .actions .price .priceBtn {
       @extend %hover;
       background-color: $primary;
     }
@@ -97,5 +98,47 @@
 
   .wishlist {
     background-color: $primary;
+  }
+  
+  .oldPrice {
+    text-decoration: line-through;
+    font-style: italic;
+    margin-left: auto;
+    padding-right: ($base-padding / 2);
+    font-weight: 300;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .root {
+    .photo .buttons {
+      flex-direction: column;
+      
+      .options {
+        text-align: center;
+      }
+    }
+    .content {
+      padding: 10px;
+
+      h5 {
+        font-size: 14px;
+      }
+    }
+
+    .actions {
+      flex-direction: column;
+
+      .oldPrice {
+        margin: 10px 0;
+      }
+    }
+    
+  }
+}
+
+@media (max-width: $tablet-breakpoint) {
+  .root .photo .buttons .options {
+    opacity: 1;
   }
 }

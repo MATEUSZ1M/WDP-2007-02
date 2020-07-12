@@ -1,19 +1,66 @@
 $base-padding: 24px;
 
-$header-topbar-bg: #434343;
-$header-bg: #363636;
+/* COLOR LIST: DO NOT USE! */
 
-$footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
+$lightBlack: #2a2a2a;
+$mediumBlack: #292929;
+$black: rgba(1, 2, 2, 0.2);
 
-$primary: #d58e32;
+$pureWhite: #ffffff;
+$mediumWhite: #e1e1e1;
+$white: #f4f5f7;
+$darkWhite: #e2e2e2;
 
+$darkOrange: #d58e32;
+$lightOrange: lighten($darkOrange, 10%);
 
-$text-color: #2a2a2a;
-$color-light: #ffffff;
+$lightGray: #b6b6b6;
+$gray: #434343;
+$mediumGray: #363636;
+$darkGray: #a9a9a9;
 
-$form-border-color: #292929;
+$lightSilver: #d8d8d8;
+
+$hawkesBlue: #e0e3ed;
+
+/* COLOR VARIABLES: TO USE */
+
+$text-color: $lightBlack;
+$color-light: $pureWhite;
+$primary: $darkOrange;
+
+$header-bg: $mediumGray;
+$header-topbar-bg: $gray;
+
+$footer-bg: $mediumGray;
+$footer-text: $darkGray;
+$footer-claim-bg: $lightBlack;
+
+$featurebox-border: $lightGray;
+
+$productbox-border: $mediumWhite;
+$productbox-photo-bg: $white;
+$productbox-sale-bg: $mediumBlack;
+$productBox-line: $lightBlack;
+
+$newFurniture-border: $darkWhite;
+$newFurniture-dots-bg: $mediumWhite;
+
+$form-border-color: $mediumBlack;
+
+$phone-number: $lightSilver;
+$cartBox-color: $pureWhite;
+$cart-counter-color: $hawkesBlue;
+$cartBox-lighten: $lightOrange;
+
+$menuBar-box-shadow: $black;
+
+/* SETTINGS */
 
 %hover {
   transition: ease 250ms;
 }
+
+/* RWD BREAKPOINTS */
+$mobile-breakpoint: 575px; 
+$tablet-breakpoint: 767px; 

@@ -53,7 +53,7 @@ class NewFurniture extends React.Component {
       swipeContent.push(
         <div key={page} className='row ml-0'>
           {categoryProducts.slice(page * 8, (page + 1) * 8).map(item => (
-            <div key={item.id} className='col-3'>
+            <div key={item.id} className='col-6 col-md-4 col-lg-3 p-2'>
               <ProductBox {...item} />
             </div>
           ))}
@@ -69,7 +69,7 @@ class NewFurniture extends React.Component {
               <div className={'col-auto ' + styles.heading}>
                 <h3>New furniture</h3>
               </div>
-              <div className={'col ' + styles.menu}>
+              <div className={'col-12 col-sm ' + styles.menu}>
                 <ul>
                   {categories.map(item => (
                     <li key={item.id}>
@@ -83,7 +83,7 @@ class NewFurniture extends React.Component {
                   ))}
                 </ul>
               </div>
-              <div className={'col-auto ' + styles.dots}>
+              <div className={'col-12 col-md-auto ' + styles.dots}>
                 <ul>{dots}</ul>
               </div>
             </div>
