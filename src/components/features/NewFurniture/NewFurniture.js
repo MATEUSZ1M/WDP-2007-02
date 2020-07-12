@@ -47,7 +47,7 @@ class NewFurniture extends React.Component {
               <div className={'col-auto ' + styles.heading}>
                 <h3>New furniture</h3>
               </div>
-              <div className={'col-12 col-sm-8 ' + styles.menu}>
+              <div className={'col-12 col-sm ' + styles.menu}>
                 <ul>
                   {categories.map(item => (
                     <li key={item.id}>
