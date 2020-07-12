@@ -1,13 +1,9 @@
-// import { connect } from 'react-redux';
-// import MainLayout from './MainLayout';
-// import { getCompareList, changeCompareList } from '../../../redux/productsRedux';
+import { connect } from 'react-redux';
+import MainLayout from './MainLayout';
+import { setDevice } from '../../../redux/deviceRedux';
 
-// // const mapStateToProps = state => ({
-// //   compareList: getCompareList(state),
-// // });
+const mapDispatchToProps = dispatch => ({
+  setDevice: width => dispatch(setDevice(width)),
+});
 
-// const mapDispatchToProps = dispatch => ({
-//   getDeviceWidth: id => dispatch(getDeviceWidth(id)),
-// });
-
-// export default connect(null, mapDispatchToProps)(MainLayout);
+export default connect(null, mapDispatchToProps)(MainLayout);

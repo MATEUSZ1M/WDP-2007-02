@@ -6,16 +6,11 @@ import Footer from '../Footer/Footer';
 import CompareList from '../../features/CompareList/CompareListContainer';
 
 class MainLayout extends React.Component {
-  state = {
-    width: window.innerWidth,
-  };
-
   render() {
-    const { children } = this.props;
-    window.addEventListener('resize', () =>
-      this.setState({ width: window.innerWidth })
-    );
-    // console.log(this);
+    const { children, setDevice } = this.props;
+    setDevice(window.innerWidth);
+    window.addEventListener('resize', () => setDevice(window.innerWidth));
+
     return (
       <div>
         <Header />
@@ -29,6 +24,7 @@ class MainLayout extends React.Component {
 
 MainLayout.propTypes = {
   children: PropTypes.node,
+  setDevice: PropTypes.func,
 };
 
 export default MainLayout;

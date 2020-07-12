@@ -104,7 +104,7 @@
   }
 }
 
-@media (max-width: $tablet-breakpoint) {
+@media (max-width: $desktop-breakpoint) {
   .root .panelBar {
     .heading h3 {
       font-size: 16px;
@@ -116,7 +116,6 @@
       ul li {
         font-weight: 400;
         
-
         a {
           font-size: 14px;
         }
