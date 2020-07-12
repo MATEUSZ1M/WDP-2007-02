@@ -15,10 +15,12 @@ const createActionName = name => `app/${reducerName}/${name}`;
 /* action types */
 const CHANGE_WISHLIST = createActionName('CHANGE_WISHLIST');
 const CHANGE_COMPARELIST = createActionName('CHANGE_COMPARELIST');
+const CHANGE_USER_STARS = createActionName('CHANGE_USER_STARS');
 
 /* action creators */
 export const changeWishlist = payload => ({ payload, type: CHANGE_WISHLIST });
 export const changeCompareList = payload => ({ payload, type: CHANGE_COMPARELIST });
+export const changeUserStars = payload => ({ payload, type: CHANGE_USER_STARS });
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
@@ -44,6 +46,12 @@ export default function reducer(statePart = [], action = {}) {
       } else {
         alert('You can compare only 4 products!');
       }
+      return newState;
+    }
+    case CHANGE_USER_STARS: {
+      const newState = [...statePart];
+      const index = newState.findIndex(product => product.id === action.payload.id);
+      newState[index].userStars = action.payload.star;
       return newState;
     }
     default:
