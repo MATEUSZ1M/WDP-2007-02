@@ -5,14 +5,27 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import CompareList from '../../features/CompareList/CompareListContainer';
 
-const MainLayout = ({ children }) => (
-  <div>
-    <Header />
-    {children}
-    <CompareList />
-    <Footer />
-  </div>
-);
+class MainLayout extends React.Component {
+  state = {
+    width: window.innerWidth,
+  };
+
+  render() {
+    const { children } = this.props;
+    window.addEventListener('resize', () =>
+      this.setState({ width: window.innerWidth })
+    );
+    // console.log(this);
+    return (
+      <div>
+        <Header />
+        {children}
+        <CompareList />
+        <Footer />
+      </div>
+    );
+  }
+}
 
 MainLayout.propTypes = {
   children: PropTypes.node,
