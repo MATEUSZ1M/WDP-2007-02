@@ -3,7 +3,6 @@
 .root {
   background-color: $color-light;
   border: 1px solid $productbox-border;
-  margin-bottom: 2rem;
 
   .photo {
     position: relative;
@@ -33,6 +32,7 @@
       justify-content: space-between;
       .options {
         opacity: 0;
+        font-size: 12px;
       }
     }
 
@@ -106,5 +106,39 @@
     margin-left: auto;
     padding-right: ($base-padding / 2);
     font-weight: 300;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .root {
+    .photo .buttons {
+      flex-direction: column;
+      
+      .options {
+        text-align: center;
+      }
+    }
+    .content {
+      padding: 10px;
+
+      h5 {
+        font-size: 14px;
+      }
+    }
+
+    .actions {
+      flex-direction: column;
+
+      .oldPrice {
+        margin: 10px 0;
+      }
+    }
+    
+  }
+}
+
+@media (max-width: $tablet-breakpoint) {
+  .root .photo .buttons .options {
+    opacity: 1;
   }
 }
