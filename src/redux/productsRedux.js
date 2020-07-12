@@ -51,7 +51,14 @@ export default function reducer(statePart = [], action = {}) {
     case CHANGE_USER_STARS: {
       const newState = [...statePart];
       const index = newState.findIndex(product => product.id === action.payload.id);
-      newState[index].userStars = action.payload.star;
+      if (
+        newState[index].userStars &&
+        newState[index].userStars === action.payload.star
+      ) {
+        newState[index].userStars = null;
+      } else {
+        newState[index].userStars = action.payload.star;
+      }
       return newState;
     }
     default:
