@@ -43,7 +43,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/HWM1Jycd/bristique-3.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -55,7 +55,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/sx7kbkdv/bristique-4.jpg',
       wishlist: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-5',
@@ -80,7 +80,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/02qR7yDm/bristique-1.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-7',
@@ -104,7 +104,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/HWM1Jycd/bristique-3.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-9',
@@ -116,7 +116,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/sx7kbkdv/bristique-4.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-10',
@@ -140,7 +140,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/02qR7yDm/bristique-1.jpg',
       wishlist: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-12',
@@ -176,7 +176,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/sx7kbkdv/bristique-4.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-15',
@@ -188,7 +188,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/G2W07cfW/bristique-5.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-16',
@@ -236,7 +236,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/sx7kbkdv/bristique-4.jpg',
       wishlist: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-20',
@@ -248,7 +248,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/G2W07cfW/bristique-5.jpg',
       wishlist: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-21',
@@ -284,7 +284,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/HWM1Jycd/bristique-3.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-24',
