@@ -15,7 +15,7 @@ class NewFurniture extends React.Component {
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
+    this.setState({ activeCategory: newCategory, activePage: 0 });
   }
 
   // Check if device has changed and set Page to 1 if so.
