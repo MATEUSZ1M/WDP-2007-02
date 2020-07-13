@@ -27,6 +27,7 @@ const initialState = {
       price: 30,
       oldPrice: 80,
       stars: 2,
+      userStars: 3,
       promo: 'sale',
       newFurniture: true,
       img: 'https://i.postimg.cc/YqfcRBzP/bristique-2.jpg',
@@ -51,6 +52,7 @@ const initialState = {
       category: 'bed',
       price: 30,
       stars: 2,
+      userStars: 5,
       promo: 'sale',
       newFurniture: true,
       img: 'https://i.postimg.cc/sx7kbkdv/bristique-4.jpg',
@@ -88,6 +90,7 @@ const initialState = {
       category: 'bed',
       price: 30,
       stars: 2,
+      userStars: 4,
       promo: 'sale',
       newFurniture: true,
       img: 'https://i.postimg.cc/YqfcRBzP/bristique-2.jpg',
@@ -1574,6 +1577,7 @@ const initialState = {
   cart: {
     products: [],
   },
+  device: '',
 };
 
 export default initialState;
