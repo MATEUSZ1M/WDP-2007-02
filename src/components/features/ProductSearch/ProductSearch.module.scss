@@ -58,3 +58,17 @@
 			}
 	}
 }
+
+@media (max-width: 1200px) {
+	.searchField {
+		input {
+			width: 80%;
+		}
+	}
+
+	.category {
+		select {
+			width: 80%;
+		}
+	}
+}
