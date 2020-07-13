@@ -3,21 +3,40 @@ import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBoxContainer';
+import Swipeable from '../../common/Swipeable/Swipeable';
 
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    manualPageChange: false,
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.setState({ activePage: newPage, manualPageChange: true });
   }
 
   handleCategoryChange(newCategory) {
     this.setState({ activeCategory: newCategory });
   }
 
+  handleRightAction = () => {
+    const { activePage, manualPageChange } = this.state;
+    if (manualPageChange) {
+      this.setState({ manualPageChange: false });
+    } else if (activePage > 0) {
+      this.setState({ activePage: activePage - 1 });
+    }
+  };
+
+  handleLeftAction = () => {
+    const { activePage, manualPageChange } = this.state;
+    if (manualPageChange) {
+      this.setState({ manualPageChange: false });
+    } else {
+      this.setState({ activePage: activePage + 1 });
+    }
+  };
   // Check if device has changed and set Page to 1 if so.
   // This will eliminate a bug, when during increasing a width the user
   //  is on a page greater than total number of pages on larger device
@@ -50,6 +69,21 @@ class NewFurniture extends React.Component {
       );
     }
 
+    const swipeContent = [];
+    for (let page = 0; page < pagesCount; page++) {
+      swipeContent.push(
+        <div key={page} className='row ml-0'>
+          {categoryProducts
+            .slice(page * elementsPerDevice, (page + 1) * elementsPerDevice)
+            .map(item => (
+              <div key={item.id} className='col-6 col-md-4 col-lg-3 p-2'>
+                <ProductBox {...item} />
+              </div>
+            ))}
+        </div>
+      );
+    }
+
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -77,18 +111,13 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <div className='row'>
-            {categoryProducts
-              .slice(
-                activePage * elementsPerDevice,
-                (activePage + 1) * elementsPerDevice
-              )
-              .map(item => (
-                <div key={item.id} className='col-6 col-md-4 col-lg-3 p-2'>
-                  <ProductBox {...item} />
-                </div>
-              ))}
-          </div>
+          <Swipeable
+            activePage={this.state.activePage}
+            rightAction={this.handleRightAction}
+            leftAction={this.handleLeftAction}
+          >
+            {swipeContent}
+          </Swipeable>
         </div>
       </div>
     );
