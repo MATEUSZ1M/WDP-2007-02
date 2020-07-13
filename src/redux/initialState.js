@@ -45,6 +45,7 @@ const initialState = {
       img: 'https://i.postimg.cc/HWM1Jycd/bristique-3.jpg',
       wishlist: false,
       compare: false,
+      hotDeal: true,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -83,6 +84,7 @@ const initialState = {
       img: 'https://i.postimg.cc/02qR7yDm/bristique-1.jpg',
       wishlist: false,
       compare: false,
+      hotDeal: true,
     },
     {
       id: 'aenean-ru-bristique-7',
@@ -192,6 +194,7 @@ const initialState = {
       img: 'https://i.postimg.cc/G2W07cfW/bristique-5.jpg',
       wishlist: false,
       compare: false,
+      hotDeal: true,
     },
     {
       id: 'aenean-ru-bristique-16',
