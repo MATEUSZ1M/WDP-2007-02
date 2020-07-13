@@ -16,12 +16,8 @@ const Swipeable = props => {
     spaceBetween: 30,
     grabCursor: true,
     on: {
-      slidePrevTransitionStart: () => {
-        props.rightAction(swiperRef.current.swiper.activeIndex);
-      },
-      slideNextTransitionStart: () => {
-        props.leftAction(swiperRef.current.swiper.activeIndex);
-      },
+      slidePrevTransitionStart: props.rightAction,
+      slideNextTransitionStart: props.leftAction,
     },
   };
 
@@ -36,7 +32,7 @@ Swipeable.propTypes = {
   children: PropTypes.node,
   rightAction: PropTypes.func,
   leftAction: PropTypes.func,
-  activePage: PropTypes.func,
+  activePage: PropTypes.number,
 };
 
 export default Swipeable;

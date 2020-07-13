@@ -9,22 +9,33 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    manualPageChange: false,
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.setState({ activePage: newPage, manualPageChange: true });
   }
 
   handleCategoryChange(newCategory) {
     this.setState({ activeCategory: newCategory });
   }
 
-  handleRightAction = newPage => {
-    this.setState({ activePage: newPage });
+  handleRightAction = prevState => {
+    const { activePage, manualPageChange } = this.state;
+    if (manualPageChange) {
+      this.setState({ manualPageChange: false });
+    } else if (activePage > 0) {
+      this.setState({ activePage: activePage - 1 });
+    }
   };
 
-  handleLeftAction = newPage => {
-    this.setState({ activePage: newPage });
+  handleLeftAction = pagesCount => {
+    const { activePage, manualPageChange } = this.state;
+    if (manualPageChange) {
+      this.setState({ manualPageChange: false });
+    } else if (activePage < pagesCount - 1) {
+      this.setState({ activePage: activePage + 1 });
+    }
   };
 
   render() {
@@ -91,7 +102,7 @@ class NewFurniture extends React.Component {
           <Swipeable
             activePage={this.state.activePage}
             rightAction={this.handleRightAction}
-            leftAction={this.handleLeftAction}
+            leftAction={this.handleLeftAction.bind(this, pagesCount)}
           >
             {swipeContent}
           </Swipeable>
