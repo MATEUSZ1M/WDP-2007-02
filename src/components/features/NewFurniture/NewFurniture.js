@@ -37,13 +37,23 @@ class NewFurniture extends React.Component {
       this.setState({ activePage: activePage + 1 });
     }
   };
+  // Check if device has changed and set Page to 1 if so.
+  // This will eliminate a bug, when during increasing a width the user
+  //  is on a page greater than total number of pages on larger device
+  componentDidUpdate(prevProps) {
+    if (prevProps.device !== this.props.device) {
+      this.setState({ activePage: 0 });
+    }
+  }
 
   render() {
-    const { categories, products } = this.props;
+    const { categories, products, device } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const elementsPerDevice = device === 'mobile' ? 2 : device === 'tablet' ? 3 : 8;
+
+    const pagesCount = Math.ceil(categoryProducts.length / elementsPerDevice);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -63,11 +73,13 @@ class NewFurniture extends React.Component {
     for (let page = 0; page < pagesCount; page++) {
       swipeContent.push(
         <div key={page} className='row ml-0'>
-          {categoryProducts.slice(page * 8, (page + 1) * 8).map(item => (
-            <div key={item.id} className='col-6 col-md-4 col-lg-3 p-2'>
-              <ProductBox {...item} />
-            </div>
-          ))}
+          {categoryProducts
+            .slice(page * elementsPerDevice, (page + 1) * elementsPerDevice)
+            .map(item => (
+              <div key={item.id} className='col-6 col-md-4 col-lg-3 p-2'>
+                <ProductBox {...item} />
+              </div>
+            ))}
         </div>
       );
     }
@@ -94,7 +106,7 @@ class NewFurniture extends React.Component {
                   ))}
                 </ul>
               </div>
-              <div className={'col-12 col-md-auto ' + styles.dots}>
+              <div className={'col-12 col-lg-auto ' + styles.dots}>
                 <ul>{dots}</ul>
               </div>
             </div>
@@ -131,6 +143,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  device: PropTypes.string,
 };
 
 NewFurniture.defaultProps = {
