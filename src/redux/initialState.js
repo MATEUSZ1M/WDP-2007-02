@@ -12,6 +12,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 1',
       category: 'bed',
       price: 30,
+      oldPrice: 44,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -24,7 +25,9 @@ const initialState = {
       name: 'Aenean Ru Bristique 2',
       category: 'bed',
       price: 30,
+      oldPrice: 80,
       stars: 2,
+      userStars: 3,
       promo: 'sale',
       newFurniture: true,
       img: 'https://i.postimg.cc/YqfcRBzP/bristique-2.jpg',
@@ -41,7 +44,8 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/HWM1Jycd/bristique-3.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
+      hotDeal: true,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -49,11 +53,12 @@ const initialState = {
       category: 'bed',
       price: 30,
       stars: 2,
+      userStars: 5,
       promo: 'sale',
       newFurniture: true,
       img: 'https://i.postimg.cc/sx7kbkdv/bristique-4.jpg',
       wishlist: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-5',
@@ -72,12 +77,14 @@ const initialState = {
       name: 'Aenean Ru Bristique 6',
       category: 'bed',
       price: 30,
+      oldPrice: 120,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
       img: 'https://i.postimg.cc/02qR7yDm/bristique-1.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
+      hotDeal: true,
     },
     {
       id: 'aenean-ru-bristique-7',
@@ -85,6 +92,7 @@ const initialState = {
       category: 'bed',
       price: 30,
       stars: 2,
+      userStars: 4,
       promo: 'sale',
       newFurniture: true,
       img: 'https://i.postimg.cc/YqfcRBzP/bristique-2.jpg',
@@ -101,7 +109,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/HWM1Jycd/bristique-3.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-9',
@@ -113,7 +121,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/sx7kbkdv/bristique-4.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-10',
@@ -137,7 +145,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/02qR7yDm/bristique-1.jpg',
       wishlist: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-12',
@@ -173,7 +181,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/sx7kbkdv/bristique-4.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-15',
@@ -185,7 +193,8 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/G2W07cfW/bristique-5.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
+      hotDeal: true,
     },
     {
       id: 'aenean-ru-bristique-16',
@@ -233,7 +242,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/sx7kbkdv/bristique-4.jpg',
       wishlist: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-20',
@@ -245,7 +254,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/G2W07cfW/bristique-5.jpg',
       wishlist: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-21',
@@ -281,7 +290,7 @@ const initialState = {
       newFurniture: true,
       img: 'https://i.postimg.cc/HWM1Jycd/bristique-3.jpg',
       wishlist: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-24',
@@ -299,6 +308,27 @@ const initialState = {
   cart: {
     products: [],
   },
+  device: '',
+  banner: [
+    {
+      id: 0,
+      url:
+        'https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+      alt: 'furniture',
+    },
+    {
+      id: 1,
+      url:
+        'https://images.pexels.com/photos/545034/pexels-photo-545034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+      alt: 'bed',
+    },
+    {
+      id: 2,
+      url:
+        'https://images.pexels.com/photos/1139784/pexels-photo-1139784.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+      alt: 'bedroom',
+    },
+  ],
 };
 
 export default initialState;

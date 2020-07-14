@@ -8,7 +8,8 @@
 		border-right: 1px solid $form-border-color;
 		display: flex;
 		align-items: center;
-		position: relative;
+    justify-content: space-between;
+    position: relative;
 			&:hover {
 				background-color: $primary;
 				border-color: $primary;
@@ -18,25 +19,59 @@
 			}
 			.icon:first-child {
 				color: $primary;
-				position: absolute;
-				left: 10px;
-				z-index: 0;
+        margin: 0 10px;
+        z-index: 0;
 			}
 			.icon:last-child {
-				position: absolute;
-				right: 10px;
-				z-index: 0;
-			}
-			select {
-				-webkit-appearance: none;
-				border: 0;
-				background-color: transparent;
-				padding: 5px 30px 5px 35px;
-				position: relative;
-				z-index: 1;
-				outline: none;
-				font-size: 14px;
-			}
+        margin: 0 10px;
+        z-index: 0;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        height: 100%;
+      }
+      li:hover {
+        cursor: pointer;
+      }
+      .menu {
+        display: flex;
+        align-items: center;
+        li {
+          position: relative;
+        }
+      }
+      .menu:hover {
+        .submenu {
+          display: block;
+          height: auto;
+        }
+      }
+      .submenu {
+        display: none;
+        position: absolute;
+        width: 194px;
+        top: 34px;
+        left: -37px;
+        z-index: 1;
+        text-align: center;
+        background-color: $color-light;
+        border: 1px solid $form-border-color;
+  
+        li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 40px;
+          border-bottom: 1px solid $form-border-color;
+        }
+  
+        li:last-child {
+          border-bottom: 0px;
+        }
+      }
+			
 	}
 	.searchField {
 		display: flex;

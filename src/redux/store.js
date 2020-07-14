@@ -4,12 +4,16 @@ import initialState from './initialState';
 import cartReducer from './cartRedux';
 import categoriesReducer from './categoriesRedux';
 import productsReducer from './productsRedux';
+import deviceReducer from './deviceRedux';
+import bannerReducer from './bannerRedux';
 
 // define reducers
 const reducers = {
+  banner: bannerReducer,
   cart: cartReducer,
   categories: categoriesReducer,
   products: productsReducer,
+  device: deviceReducer,
 };
 
 // add blank reducers for initial state properties without reducers

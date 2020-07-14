@@ -2,6 +2,7 @@
 
 .root {
   background-color: $header-topbar-bg;
+  padding: 10px;
 
   ul {
     list-style: none;
@@ -13,7 +14,7 @@
       line-height: 55px;
 
       a {
-        color: #ffffff;
+        color: $color-light;
         font-size: 13px;
 
         &:hover {
@@ -38,6 +39,16 @@
 
     .icon {
       margin-right: 5px;
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    .topMenu, .topOptions {
+      padding: 0;
+    }
+
+    .topMenu span {
+      display: none;
     }
   }
 }

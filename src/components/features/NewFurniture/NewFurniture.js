@@ -3,27 +3,57 @@ import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBoxContainer';
+import Swipeable from '../../common/Swipeable/Swipeable';
 
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    manualPageChange: false,
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.setState({ activePage: newPage, manualPageChange: true });
   }
 
   handleCategoryChange(newCategory) {
     this.setState({ activeCategory: newCategory });
   }
 
+  handleRightAction = () => {
+    const { activePage, manualPageChange } = this.state;
+    if (manualPageChange) {
+      this.setState({ manualPageChange: false });
+    } else if (activePage > 0) {
+      this.setState({ activePage: activePage - 1 });
+    }
+  };
+
+  handleLeftAction = () => {
+    const { activePage, manualPageChange } = this.state;
+    if (manualPageChange) {
+      this.setState({ manualPageChange: false });
+    } else {
+      this.setState({ activePage: activePage + 1 });
+    }
+  };
+  // Check if device has changed and set Page to 1 if so.
+  // This will eliminate a bug, when during increasing a width the user
+  //  is on a page greater than total number of pages on larger device
+  componentDidUpdate(prevProps) {
+    if (prevProps.device !== this.props.device) {
+      this.setState({ activePage: 0 });
+    }
+  }
+
   render() {
-    const { categories, products } = this.props;
+    const { categories, products, device } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const elementsPerDevice = device === 'mobile' ? 2 : device === 'tablet' ? 3 : 8;
+
+    const pagesCount = Math.ceil(categoryProducts.length / elementsPerDevice);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -39,6 +69,21 @@ class NewFurniture extends React.Component {
       );
     }
 
+    const swipeContent = [];
+    for (let page = 0; page < pagesCount; page++) {
+      swipeContent.push(
+        <div key={page} className='row ml-0'>
+          {categoryProducts
+            .slice(page * elementsPerDevice, (page + 1) * elementsPerDevice)
+            .map(item => (
+              <div key={item.id} className='col-6 col-md-4 col-lg-3 p-2'>
+                <ProductBox {...item} />
+              </div>
+            ))}
+        </div>
+      );
+    }
+
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -47,7 +92,7 @@ class NewFurniture extends React.Component {
               <div className={'col-auto ' + styles.heading}>
                 <h3>New furniture</h3>
               </div>
-              <div className={'col ' + styles.menu}>
+              <div className={'col-12 col-sm ' + styles.menu}>
                 <ul>
                   {categories.map(item => (
                     <li key={item.id}>
@@ -61,18 +106,18 @@ class NewFurniture extends React.Component {
                   ))}
                 </ul>
               </div>
-              <div className={'col-auto ' + styles.dots}>
+              <div className={'col-12 col-lg-auto ' + styles.dots}>
                 <ul>{dots}</ul>
               </div>
             </div>
           </div>
-          <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-3'>
-                <ProductBox {...item} />
-              </div>
-            ))}
-          </div>
+          <Swipeable
+            activePage={this.state.activePage}
+            rightAction={this.handleRightAction}
+            leftAction={this.handleLeftAction}
+          >
+            {swipeContent}
+          </Swipeable>
         </div>
       </div>
     );
@@ -98,6 +143,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  device: PropTypes.string,
 };
 
 NewFurniture.defaultProps = {

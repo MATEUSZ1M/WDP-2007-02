@@ -1,7 +1,7 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  box-shadow: 2px 3.464px 6px rgba(1, 2, 2, 0.2);
+  box-shadow: 2px 3.464px 6px $menuBar-box-shadow;
   background-color: $color-light;
 
   :global(.container) > :global(.row) {
@@ -108,26 +108,24 @@
 
     .hamburger_button:checked ~ .menu {
       visibility:visible;
-      //max-height: 100vh;
       height: 100vh;
     }
 
     .menu {
       order: 1;
       visibility: collapse;
-      //max-height: 0;
       height: 0;
       overflow-y: auto;
 
       ul {
         flex-wrap: wrap;
-        border: 1px solid black;
+        border: 1px solid $form-border-color;
 
         li {
           flex: 100%;
           width: 100vw;
           justify-content: center;
-          border-bottom: 1px solid black;
+          border-bottom: 1px solid $form-border-color;
         }
         li:last-child {
           border-bottom: 0;

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ProductBox from './ProductBox';
+import HotDeal from './HotDeal';
 
 import { changeWishlist, changeCompareList } from '../../../redux/productsRedux';
 
@@ -8,4 +8,4 @@ const mapDispatchToProps = dispatch => ({
   changeCompareList: id => dispatch(changeCompareList(id)),
 });
 
-export default connect(null, mapDispatchToProps)(ProductBox);
+export default connect(null, mapDispatchToProps)(HotDeal);

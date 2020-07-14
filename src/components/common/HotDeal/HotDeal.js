@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './ProductBox.module.scss';
+import styles from './HotDeal.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart, faEye } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import Stars from '../Stars/StarsContainer';
 
-const ProductBox = ({
+const HotDeal = ({
   id,
   name,
   price,
-  promo,
   stars,
   img,
   wishlist,
@@ -24,15 +23,25 @@ const ProductBox = ({
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
-        {promo && <div className={styles.sale}>{promo}</div>}
         <img alt={name} src={img} />
         <div className={styles.buttons}>
           <Button className={styles.options} variant='small'>
-            Quick View
-          </Button>
-          <Button className={styles.options} variant='small'>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
+          <div className={styles.timer}>
+            <div>
+              <span>25</span> DAYS
+            </div>
+            <div>
+              <span>10</span> HRS
+            </div>
+            <div>
+              <span>45</span> MINS
+            </div>
+            <div>
+              <span>30</span> SECS
+            </div>
+          </div>
         </div>
       </div>
       <div className={styles.content}>
@@ -42,6 +51,15 @@ const ProductBox = ({
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
+          <Button
+            variant='outline'
+            onClick={event => {
+              event.preventDefault();
+              return;
+            }}
+          >
+            <FontAwesomeIcon icon={faEye}>Quick View</FontAwesomeIcon>
+          </Button>
           <Button
             variant={wishlist ? 'outline__checked' : 'outline'}
             onClick={event => {
@@ -72,12 +90,10 @@ const ProductBox = ({
   );
 };
 
-ProductBox.propTypes = {
-  children: PropTypes.node,
+HotDeal.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
   oldPrice: PropTypes.number,
-  promo: PropTypes.string,
   stars: PropTypes.number,
   img: PropTypes.string,
   wishlist: PropTypes.bool,
@@ -88,4 +104,4 @@ ProductBox.propTypes = {
   userStars: PropTypes.number,
 };
 
-export default ProductBox;
+export default HotDeal;

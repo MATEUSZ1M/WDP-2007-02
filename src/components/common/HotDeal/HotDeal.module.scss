@@ -16,29 +16,55 @@
     overflow: hidden;
     align-items: flex-end;
 
-    .sale {
-      position: absolute;
-      top: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: $productbox-sale-bg;
-      border-radius: 50%;
-      color: $color-light;
-      padding: 30px 15px 5px 15px;
-    }
-
     .buttons {
-      display: flex;
       justify-content: space-between;
+
       .options {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
         opacity: 0;
         font-size: 12px;
+      }
+
+      .timer{
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        justify-content: center;
+        display: flex;
+        opacity: 0;
+        font-size: 12px;
+        padding-bottom: 20px;
+
+
+        div{
+          color: $pureWhite;
+          margin: 0 5px;
+          background-color: $lightBlack;
+          height: 60px;
+          width: 60px;
+          border-radius: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          span{
+            line-height: 1rem;
+            font-size: 1.3rem;
+          }
+        }
       }
     }
 
     img {
       width: 100%;
-      height: 200px;
+      height: 250px;
       object-fit: cover;
     }
   }
@@ -83,6 +109,11 @@
       opacity: 1;
     }
 
+    .buttons .timer{
+      @extend %hover;
+      opacity: 1;
+    }
+
     .actions .price .priceBtn {
       @extend %hover;
       background-color: $primary;
@@ -106,7 +137,7 @@
   .root {
     .photo .buttons {
       flex-direction: column;
-      
+
       .options {
         text-align: center;
       }
@@ -126,7 +157,7 @@
         margin: 10px 0;
       }
     }
-    
+
   }
 }
 
