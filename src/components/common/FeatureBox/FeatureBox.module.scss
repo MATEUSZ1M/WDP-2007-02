@@ -1,74 +1,88 @@
 @import "../../../styles/settings.scss";
+
 .root {
-    border: 1px solid $featurebox-border;
-    text-align: center;
-    margin-top: 40px;
+  border: 1px solid $featurebox-border;
+  text-align: center;
+  margin-top: 40px;
+
+  .iconWrapper {
+    height: 60px;
+    transform: translateY(-50%);
+    color: $text-color;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover .icon {
+      @extend %hover;
+
+      color: $color-light;
+    }
+
+    &:hover::after {
+      @extend %hover;
+
+      background-color: $primary;
+      border-color: $primary;
+    }
+
+    .icon {
+      position: relative;
+      z-index: 9;
+    }
+
+    &::before {
+      content: "";
+      border: 1px solid $featurebox-border;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 76px;
+      height: 76px;
+      border-radius: 100%;
+      background-color: $color-light;
+      z-index: -1;
+    }
+
+    &::after {
+      content: "";
+      width: 60px;
+      height: 60px;
+      border-radius: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid $featurebox-border;
+    }
+  }
+
+  .content {
+    text-transform: uppercase;
+    color: $text-color;
+    margin-top: -0.5rem;
+    letter-spacing: 1px;
+    font-weight: 300;
+
+    h5 {
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+
+  &.active {
     .iconWrapper {
-        height: 60px;
-        transform: translateY(-50%);
-        color: $text-color;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        &:hover .icon {
-            @extend %hover;
-            color: $color-light;
-        }
-        &:hover::after {
-            @extend %hover;
-            background-color: $primary;
-            border-color: $primary;
-        }
-        .icon {
-            position: relative;
-            z-index: 9;
-        }
-        &::before {
-            content: "";
-            border: 1px solid $featurebox-border;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 76px;
-            height: 76px;
-            border-radius: 100%;
-            background-color: $color-light;
-            z-index: -1;
-        }
-        &::after {
-            content: "";
-            width: 60px;
-            height: 60px;
-            border-radius: 100%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: 1px solid $featurebox-border;
-        }
+      color: $color-light;
+
+      &::after {
+        background-color: $primary;
+        border-color: $primary;
+      }
     }
+
     .content {
-        text-transform: uppercase;
-        color: $text-color;
-        margin-top: -0.5rem;
-        letter-spacing: 1px;
-        font-weight: 300;
-        h5 {
-            font-weight: 600;
-            margin: 0;
-        }
+      color: $primary;
     }
-    &.active {
-        .iconWrapper {
-            color: $color-light;
-            &::after {
-                background-color: $primary;
-                border-color: $primary;
-            }
-        }
-        .content {
-            color: $primary;
-        }
-    }
+  }
 }
