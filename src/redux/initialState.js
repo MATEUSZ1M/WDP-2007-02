@@ -45,6 +45,7 @@ const initialState = {
       img: 'https://i.postimg.cc/HWM1Jycd/bristique-3.jpg',
       wishlist: false,
       compare: false,
+      hotDeal: true,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -83,6 +84,7 @@ const initialState = {
       img: 'https://i.postimg.cc/02qR7yDm/bristique-1.jpg',
       wishlist: false,
       compare: false,
+      hotDeal: true,
     },
     {
       id: 'aenean-ru-bristique-7',
@@ -192,6 +194,7 @@ const initialState = {
       img: 'https://i.postimg.cc/G2W07cfW/bristique-5.jpg',
       wishlist: false,
       compare: false,
+      hotDeal: true,
     },
     {
       id: 'aenean-ru-bristique-16',
@@ -1578,6 +1581,26 @@ const initialState = {
     products: [],
   },
   device: '',
+  banner: [
+    {
+      id: 0,
+      url:
+        'https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+      alt: 'furniture',
+    },
+    {
+      id: 1,
+      url:
+        'https://images.pexels.com/photos/545034/pexels-photo-545034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+      alt: 'bed',
+    },
+    {
+      id: 2,
+      url:
+        'https://images.pexels.com/photos/1139784/pexels-photo-1139784.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+      alt: 'bedroom',
+    },
+  ],
 };
 
 export default initialState;
