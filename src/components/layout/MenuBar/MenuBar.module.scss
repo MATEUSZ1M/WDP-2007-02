@@ -135,7 +135,7 @@
   }
 }
 
-@media (min-width: 577px) {
+@media (min-width: $mobile-breakpoint) {
   .product_search {
     .icon {
       display: none;
