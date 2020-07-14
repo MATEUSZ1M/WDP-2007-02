@@ -6,7 +6,7 @@ $lightBlack: #2a2a2a;
 $mediumBlack: #292929;
 $black: rgba(1, 2, 2, 0.2);
 
-$pureWhite: #ffffff;
+$pureWhite: #fff;
 $mediumWhite: #e1e1e1;
 $white: #f4f5f7;
 $darkWhite: #e2e2e2;
@@ -62,6 +62,7 @@ $menuBar-box-shadow: $black;
 }
 
 /* RWD BREAKPOINTS */
-$mobile-breakpoint: 575px; 
-$tablet-breakpoint: 767px; 
+
+$mobile-breakpoint: 575px;
+$tablet-breakpoint: 767px;
 $desktop-breakpoint: 991px;
