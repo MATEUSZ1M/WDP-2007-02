@@ -1,15 +1,14 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  border: 1px solid $form-border-color;
-  display: inline-flex;
-  height: 45px;
-  color: $text-color;
-
-  .category {
-    border-right: 1px solid $form-border-color;
-    display: flex;
-    align-items: center;
+	border: 1px solid $form-border-color;
+	display: inline-flex;
+	height: 45px;
+	color: $text-color;
+	.category {
+		border-right: 1px solid $form-border-color;
+		display: flex;
+		align-items: center;
     justify-content: space-between;
     position: relative;
 
@@ -50,61 +49,88 @@
 
       li {
         position: relative;
+
       }
-    }
-
-    .menu:hover {
-      .submenu {
-        display: block;
-        height: auto;
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        height: 100%;
       }
-    }
 
-    .submenu {
-      display: none;
-      position: absolute;
-      width: 194px;
-      top: 34px;
-      left: -37px;
-      z-index: 1;
-      text-align: center;
-      background-color: #fff;
-      border: 1px solid $form-border-color;
-
-      li {
+      li:hover {
+        cursor: pointer;
+      }
+      .menu {
         display: flex;
-        justify-content: center;
         align-items: center;
-        height: 40px;
-        border-bottom: 1px solid $form-border-color;
+        li {
+          position: relative;
+        }
       }
 
-      li:last-child {
-        border-bottom: 0;
+      .menu:hover {
+        .submenu {
+          display: block;
+          height: auto;
+        }
       }
-    }
-  }
-
-  .searchField {
-    display: flex;
-    align-items: center;
-    position: relative;
-
-    input {
-      border: 0;
-      padding-left: 10px;
-      font-size: 14px;
-      outline: none;
-
-      &::placeholder {
-        color: $text-color;
+      .submenu {
+        display: none;
+        position: absolute;
+        width: 194px;
+        top: 34px;
+        left: -37px;
+        z-index: 1;
+        text-align: center;
+        background-color: $color-light;
+        border: 1px solid $form-border-color;
+  
+        li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 40px;
+          border-bottom: 1px solid $form-border-color;
+        }
+  
+        li:last-child {
+          border-bottom: 0px;
+        }
       }
-    }
+			
+	}
+	.searchField {
+		display: flex;
+		align-items: center;
+		position: relative;
+			input {
+				border: 0;
+				padding-left: 10px;
+				font-size: 14px;
+				outline: none;
+					&::placeholder {
+						color: $text-color;
+					}
+			}
+			button {
+				border: 0;
+				background-color: transparent;
+				outline: none;
+			}
+	}
+}
 
-    button {
-      border: 0;
-      background-color: transparent;
-      outline: none;
-    }
-  }
+@media (max-width: $desktop-breakpoint) {
+	.searchField {
+		input {
+			width: 80%;
+		}
+	}
+
+	.category {
+		select {
+			width: 80%;
+		}
+	}
 }
