@@ -302,6 +302,26 @@ const initialState = {
       compare: false,
     },
   ],
+  promotion: [
+    {
+      id: 'sofa',
+      name: 'Orange sofa',
+      img:
+        'https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      id: 'chair',
+      name: 'Gray chairs',
+      img:
+        'https://images.pexels.com/photos/923192/pexels-photo-923192.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      id: 'bed',
+      name: 'Bed',
+      img:
+        'https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+  ],
   cart: {
     products: [],
   },
