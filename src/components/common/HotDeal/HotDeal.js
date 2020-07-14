@@ -12,7 +12,6 @@ const HotDeal = ({
   id,
   name,
   price,
-  promo,
   stars,
   img,
   wishlist,
@@ -92,11 +91,9 @@ const HotDeal = ({
 };
 
 HotDeal.propTypes = {
-  children: PropTypes.node,
   name: PropTypes.string,
   price: PropTypes.number,
   oldPrice: PropTypes.number,
-  promo: PropTypes.string,
   stars: PropTypes.number,
   img: PropTypes.string,
   wishlist: PropTypes.bool,

@@ -15,26 +15,9 @@ class Promote extends React.Component {
   };
 
   render() {
-    const { products } = this.props;
+    const { products, banners } = this.props;
     const { activePage } = this.state;
     const categoryProducts = products.filter(item => item.hotDeal === true);
-    const image = [
-      {
-        url:
-          'https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
-        alt: 'furniture',
-      },
-      {
-        url:
-          'https://images.pexels.com/photos/545034/pexels-photo-545034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
-        alt: 'bed',
-      },
-      {
-        url:
-          'https://images.pexels.com/photos/1139784/pexels-photo-1139784.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
-        alt: 'bedroom',
-      },
-    ];
 
     const dots = [];
     for (let i = 0; i < categoryProducts.length; i++) {
@@ -72,8 +55,8 @@ class Promote extends React.Component {
             <div className={'col-8 ' + styles.rightPanel}>
               <div className={styles.swipe}>
                 <Swipeable>
-                  {image.map(item => (
-                    <div key={item.alt} className={styles.image}>
+                  {banners.map(item => (
+                    <div key={item.id} className={styles.image}>
                       <img src={item.url} alt={item.name} />
                       <div className={styles.imageHover}>
                         <div className={styles.title}>
@@ -118,6 +101,7 @@ Promote.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  banners: PropTypes.array,
 };
 
 export default Promote;

@@ -19,6 +19,13 @@ const Swipeable = props => {
       slidePrevTransitionStart: props.rightAction,
       slideNextTransitionStart: props.leftAction,
     },
+    effect: 'cube',
+    cubeEffect: {
+      shadow: true,
+      slideShadows: true,
+      shadowOffset: 20,
+      shadowScale: 0.94,
+    },
   };
 
   return (

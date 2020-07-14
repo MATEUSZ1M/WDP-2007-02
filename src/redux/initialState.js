@@ -309,6 +309,26 @@ const initialState = {
     products: [],
   },
   device: '',
+  banner: [
+    {
+      id: 0,
+      url:
+        'https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+      alt: 'furniture',
+    },
+    {
+      id: 1,
+      url:
+        'https://images.pexels.com/photos/545034/pexels-photo-545034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+      alt: 'bed',
+    },
+    {
+      id: 2,
+      url:
+        'https://images.pexels.com/photos/1139784/pexels-photo-1139784.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+      alt: 'bedroom',
+    },
+  ],
 };
 
 export default initialState;
