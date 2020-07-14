@@ -29,7 +29,8 @@
       "npm run test-related --",
       "eslint --fix",
       "prettier --write",
-      "git add"
+      "git add",
+      "npx stylelint \"**/*.scss\""
     ]
   },
   "browserslist": {
