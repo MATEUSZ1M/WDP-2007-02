@@ -8,7 +8,7 @@ const Swipeable = props => {
 
   useEffect(() => {
     if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideTo(props.activePage, 400);
+      swiperRef.current.swiper.slideTo(props.activePage, 0);
     }
   });
 

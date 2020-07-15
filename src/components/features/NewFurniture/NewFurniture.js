@@ -9,15 +9,24 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    fade: false,
     manualPageChange: false,
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage, manualPageChange: true });
+    this.setState({ fade: true });
+    setTimeout(
+      () => this.setState({ activePage: newPage, fade: false, manualPageChange: true }),
+      100
+    );
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
+    this.setState({ fade: true });
+    setTimeout(
+      () => this.setState({ activeCategory: newCategory, fade: false, activePage: 0 }),
+      100
+    );
   }
 
   handleRightAction = () => {
@@ -37,6 +46,7 @@ class NewFurniture extends React.Component {
       this.setState({ activePage: activePage + 1 });
     }
   };
+
   // Check if device has changed and set Page to 1 if so.
   // This will eliminate a bug, when during increasing a width the user
   //  is on a page greater than total number of pages on larger device
@@ -48,7 +58,7 @@ class NewFurniture extends React.Component {
 
   render() {
     const { categories, products, device } = this.props;
-    const { activeCategory, activePage } = this.state;
+    const { activeCategory, activePage, fade } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const elementsPerDevice = device === 'mobile' ? 2 : device === 'tablet' ? 3 : 8;
@@ -72,7 +82,10 @@ class NewFurniture extends React.Component {
     const swipeContent = [];
     for (let page = 0; page < pagesCount; page++) {
       swipeContent.push(
-        <div key={page} className='row ml-0'>
+        <div
+          key={page}
+          className={'row ml-0 ' + (fade ? styles.fadeOut : styles.fadeIn)}
+        >
           {categoryProducts
             .slice(page * elementsPerDevice, (page + 1) * elementsPerDevice)
             .map(item => (
