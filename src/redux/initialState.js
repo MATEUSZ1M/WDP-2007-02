@@ -1627,6 +1627,43 @@ const initialState = {
       alt: 'bedroom',
     },
   ],
+  brands: [
+    {
+      id: 'Brand-1',
+      name: 'Brand 1',
+      logo: 'https://i.imgur.com/kzqUq5a.png',
+    },
+
+    {
+      id: 'Brand-2',
+      name: 'Brand 2',
+      logo: 'https://i.imgur.com/CE8sjwf.png',
+    },
+
+    {
+      id: 'Brand-3',
+      name: 'Brand 3',
+      logo: 'https://i.imgur.com/gphALdI.png',
+    },
+
+    {
+      id: 'Brand-4',
+      name: 'Brand 4',
+      logo: 'https://i.imgur.com/lFsGTUo.png',
+    },
+
+    {
+      id: 'Brand-5',
+      name: 'Brand 5',
+      logo: 'https://i.imgur.com/lL2sdZB.png',
+    },
+
+    {
+      id: 'Brand-6',
+      name: 'Brand 6',
+      logo: 'https://i.imgur.com/kzqUq5a.png',
+    },
+  ],
 };
 
 export default initialState;
