@@ -49,3 +49,11 @@
     border-color: $text-color;
   }
 }
+
+.green {
+  @extend .main;
+  background-color: $galleryAd-green;
+  border-radius: 3px;
+  box-shadow: 1px 1px 5px rgba($gallery-black, 0.4);
+  text-transform: uppercase;
+}

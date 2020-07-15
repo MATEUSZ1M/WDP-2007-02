@@ -23,6 +23,8 @@ $lightSilver: #d8d8d8;
 
 $hawkesBlue: #e0e3ed;
 
+$lightGreen: #a3d841;
+
 /* COLOR VARIABLES: TO USE */
 
 $text-color: $lightBlack;
@@ -54,6 +56,12 @@ $cart-counter-color: $hawkesBlue;
 $cartBox-lighten: $lightOrange;
 
 $menuBar-box-shadow: $black;
+
+$gallery-border: $darkWhite;
+$gallery-bg: $white;
+$gallery-black: $lightBlack;
+$gallery-price-bg: lighten($gray, 20);
+$galleryAd-green: $lightGreen;
 
 /* SETTINGS */
 
