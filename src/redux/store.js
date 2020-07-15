@@ -6,9 +6,11 @@ import categoriesReducer from './categoriesRedux';
 import productsReducer from './productsRedux';
 import deviceReducer from './deviceRedux';
 import promotionReducer from './promotionRedux';
+import bannerReducer from './bannerRedux';
 
 // define reducers
 const reducers = {
+  banner: bannerReducer,
   cart: cartReducer,
   categories: categoriesReducer,
   products: productsReducer,
