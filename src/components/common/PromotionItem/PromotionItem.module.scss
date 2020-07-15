@@ -1,0 +1,29 @@
+@import "../../../styles/settings.scss";
+
+.imageBox {
+    overflow: hidden;
+    width: 50%;
+    position: relative;
+
+    img {
+        width: 100%;
+        position: relative;
+    }
+
+    .promoImage {
+        object-fit: cover;
+    }
+
+    .textBox {
+        position: absolute;
+        display: flex;
+        z-index: 999;
+        top: 20%;
+        flex-direction: column;
+        color: $color-light;
+        font-size: 30px;
+        text-transform: uppercase;
+    }
+
+}
+
