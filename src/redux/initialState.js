@@ -333,43 +333,37 @@ const initialState = {
     {
       id: 'Brand-1',
       name: 'Brand 1',
-      logo:
-        'https://via.placeholder.com/120x65/FF0000%20C/O%20https://placeholder.com.png',
+      logo: 'https://i.imgur.com/kzqUq5a.png',
     },
 
     {
       id: 'Brand-2',
       name: 'Brand 2',
-      logo:
-        'https://via.placeholder.com/120x65/008000%20C/O%20https://placeholder.com.png',
+      logo: 'https://i.imgur.com/CE8sjwf.png',
     },
 
     {
       id: 'Brand-3',
       name: 'Brand 3',
-      logo:
-        'https://via.placeholder.com/120x65/000000%20C/O%20https://placeholder.com.png',
+      logo: 'https://i.imgur.com/gphALdI.png',
     },
 
     {
       id: 'Brand-4',
       name: 'Brand 4',
-      logo:
-        'https://via.placeholder.com/120x65/BB00FF%20C/O%20https://placeholder.com.png',
+      logo: 'https://i.imgur.com/lFsGTUo.png',
     },
 
     {
       id: 'Brand-5',
       name: 'Brand 5',
-      logo:
-        'https://via.placeholder.com/120x65/dddddd%20C/O%20https://placeholder.com.png',
+      logo: 'https://i.imgur.com/lL2sdZB.png',
     },
 
     {
       id: 'Brand-6',
       name: 'Brand 6',
-      logo:
-        'https://via.placeholder.com/120x65/0000FF%20C/O%20https://placeholder.com.png',
+      logo: 'https://i.imgur.com/kzqUq5a.png',
     },
   ],
 };
