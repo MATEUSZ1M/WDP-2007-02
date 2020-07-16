@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './Gallery.module.scss';
 
@@ -21,6 +22,7 @@ class Gallery extends React.Component {
 
   render() {
     const { activeCategory } = this.state;
+    const { changeWishlist, changeCompareList } = this.props;
 
     const categoryProducts = this.props[activeCategory];
 
@@ -58,13 +60,27 @@ class Gallery extends React.Component {
                   </div>
                   <div className={styles.buttons}>
                     <div className={styles.buttonWrapper}>
-                      <Button className={styles.button} variant='outline'>
+                      <Button
+                        className={styles.button}
+                        variant={product.wishlist ? 'outline__checked' : 'outline'}
+                        onClick={event => {
+                          event.preventDefault();
+                          return changeWishlist(product.id);
+                        }}
+                      >
                         <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
                       </Button>
                       <span>Add To Wishlist</span>
                     </div>
                     <div className={styles.buttonWrapper}>
-                      <Button className={styles.button} variant='outline'>
+                      <Button
+                        className={styles.button}
+                        variant={product.compare ? 'outline__checked' : 'outline'}
+                        onClick={event => {
+                          event.preventDefault();
+                          return changeCompareList(product.id);
+                        }}
+                      >
                         <FontAwesomeIcon icon={faExchangeAlt}></FontAwesomeIcon>
                       </Button>
                       <span>Add To Compare</span>
@@ -135,5 +151,10 @@ class Gallery extends React.Component {
     );
   }
 }
+
+Gallery.propTypes = {
+  changeWishlist: PropTypes.func,
+  changeCompareList: PropTypes.func,
+};
 
 export default Gallery;

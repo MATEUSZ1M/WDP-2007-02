@@ -3,19 +3,24 @@ import { connect } from 'react-redux';
 import Gallery from './Gallery';
 
 import {
-  getNew,
   getFeatured,
   getTopSeller,
   getSale,
   getTopRated,
 } from '../../../redux/productsRedux.js';
 
+import { changeWishlist, changeCompareList } from '../../../redux/productsRedux';
+
 const mapStateToProps = state => ({
-  products: getNew(state),
   featured: getFeatured(state),
   topSeller: getTopSeller(state),
   saleOff: getSale(state),
   topRated: getTopRated(state),
 });
 
-export default connect(mapStateToProps)(Gallery);
+const mapDispatchToProps = dispatch => ({
+  changeWishlist: id => dispatch(changeWishlist(id)),
+  changeCompareList: id => dispatch(changeCompareList(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Gallery);
