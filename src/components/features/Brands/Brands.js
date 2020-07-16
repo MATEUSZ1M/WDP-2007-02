@@ -1,63 +1,48 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styles from './Brands.module.scss';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import Swiper from 'react-id-swiper';
-import 'swiper/swiper.scss';
+import Swipeable from '../../common/Swipeable/Swipeable';
 
-const Brands = ({ brands }) => {
-  const params = {
-    grabCursor: true,
-    loop: true,
-    breakpoints: {
-      1024: {
-        slidesPerView: 6,
-        slidesPerGroup: 6,
-        spaceBetween: 40,
-      },
-    },
-  };
+class Brands extends React.Component {
+  render() {
+    const { brands } = this.props;
 
-  const swiperRef = useRef(null);
+    const swiperParams = {
+      grabCursor: true,
+      loop: true,
+      slidesPerView: 6,
+      slidesPerGroup: 6,
+    };
 
-  const goNext = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideNext();
-    }
-  };
-  const goPrev = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slidePrev();
-    }
-  };
+    return (
+      <div className={styles.root}>
+        <div className='container'>
+          <div className={styles.wrapper}>
+            <div className={styles.control}>
+              <FontAwesomeIcon className={styles.icon} icon={faAngleLeft} />
+            </div>
 
-  return (
-    <div className={styles.root}>
-      <div className='container'>
-        <div className={styles.wrapper}>
-          <div className={styles.control} onClick={goPrev}>
-            <FontAwesomeIcon className={styles.icon} icon={faAngleLeft} />
-          </div>
+            <div className={styles.logoBox}>
+              <Swipeable swiperParams={swiperParams}>
+                {brands.map(brand => (
+                  <div key={brand.id} className={styles.logo}>
+                    <img src={brand.logo} alt={brand.name} />
+                  </div>
+                ))}
+              </Swipeable>
+            </div>
 
-          <div className={styles.logoBox}>
-            <Swiper ref={swiperRef} {...params}>
-              {brands.map(brand => (
-                <div key={brand.id} className={styles.logo}>
-                  <img src={brand.logo} alt={brand.name} />
-                </div>
-              ))}
-            </Swiper>
-          </div>
-
-          <div className={styles.control} onClick={goNext}>
-            <FontAwesomeIcon className={styles.icon} icon={faAngleRight} />
+            <div className={styles.control}>
+              <FontAwesomeIcon className={styles.icon} icon={faAngleRight} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 Brands.propTypes = {
   brands: PropTypes.arrayOf(
