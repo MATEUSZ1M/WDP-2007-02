@@ -21,7 +21,6 @@
       flex-direction: column;
       flex-grow: 1;
 
-
       .button {
         z-index: 100;
         display: inline-flex;
@@ -162,5 +161,21 @@
       }
     }
 
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .root {
+    .leftPanel {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $tablet-breakpoint) {
+  .root {
+    .leftPanel {
+      display: none;
+    }
   }
 }

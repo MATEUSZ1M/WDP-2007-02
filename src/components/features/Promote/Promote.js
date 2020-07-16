@@ -52,7 +52,7 @@ class Promote extends React.Component {
                 ))}
               </Swipeable>
             </div>
-            <div className={'col-8 ' + styles.rightPanel}>
+            <div className={'col-sm-12 col-md-8 ' + styles.rightPanel}>
               <div className={styles.swipe}>
                 <Swipeable>
                   {banners.map(item => (
