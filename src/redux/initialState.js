@@ -19,6 +19,7 @@ const initialState = {
       img: 'https://i.postimg.cc/02qR7yDm/bristique-1.jpg',
       wishlist: true,
       compare: false,
+      topSeller: true,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -71,6 +72,7 @@ const initialState = {
       img: 'https://i.postimg.cc/G2W07cfW/bristique-5.jpg',
       wishlist: false,
       compare: false,
+      topSeller: true,
     },
     {
       id: 'aenean-ru-bristique-6',
@@ -98,6 +100,7 @@ const initialState = {
       img: 'https://i.postimg.cc/YqfcRBzP/bristique-2.jpg',
       wishlist: false,
       compare: false,
+      topSeller: true,
     },
     {
       id: 'aenean-ru-bristique-8',
@@ -122,6 +125,7 @@ const initialState = {
       img: 'https://i.postimg.cc/sx7kbkdv/bristique-4.jpg',
       wishlist: false,
       compare: false,
+      topSeller: true,
     },
     {
       id: 'aenean-ru-bristique-10',
@@ -170,6 +174,7 @@ const initialState = {
       img: 'https://i.postimg.cc/HWM1Jycd/bristique-3.jpg',
       wishlist: true,
       compare: false,
+      topSeller: true,
     },
     {
       id: 'aenean-ru-bristique-14',
@@ -219,6 +224,7 @@ const initialState = {
       img: 'https://i.postimg.cc/YqfcRBzP/bristique-2.jpg',
       wishlist: false,
       compare: false,
+      topSeller: true,
     },
     {
       id: 'aenean-ru-bristique-18',
@@ -267,6 +273,7 @@ const initialState = {
       img: 'https://i.postimg.cc/02qR7yDm/bristique-1.jpg',
       wishlist: false,
       compare: false,
+      topSeller: true,
     },
     {
       id: 'aenean-ru-bristique-22',
@@ -303,6 +310,7 @@ const initialState = {
       img: 'https://i.postimg.cc/sx7kbkdv/bristique-4.jpg',
       wishlist: false,
       compare: false,
+      topSeller: true,
     },
     {
       id: 'gracewood-hollow-driftwood-1',

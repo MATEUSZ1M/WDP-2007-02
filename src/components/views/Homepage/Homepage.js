@@ -7,6 +7,7 @@ import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 import PromotionBox from '../../features/PromotionBox/PromotionBoxContainer';
 import Promote from '../../features/Promote/PromoteContainer';
+import Gallery from '../../features/Gallery/GalleryContainer';
 import Brands from '../../features/Brands/BrandsContainer';
 
 const Homepage = () => (
@@ -15,6 +16,7 @@ const Homepage = () => (
     <FeatureBoxes />
     <PromotionBox />
     <NewFurniture />
+    <Gallery />
     <Brands />
   </div>
 );
