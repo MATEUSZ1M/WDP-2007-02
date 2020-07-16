@@ -5,9 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 
 class Feedback extends React.Component {
-  state = {
-    activePageFeedback: 0,
-  };
   render() {
     const { feedbacks } = this.props;
     return (
