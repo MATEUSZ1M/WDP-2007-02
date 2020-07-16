@@ -13,6 +13,7 @@ $darkWhite: #e2e2e2;
 
 $darkOrange: #d58e32;
 $lightOrange: lighten($darkOrange, 10%);
+$orange: #ffa500;
 
 $lightGray: #b6b6b6;
 $gray: #434343;
@@ -54,6 +55,8 @@ $cart-counter-color: $hawkesBlue;
 $cartBox-lighten: $lightOrange;
 
 $menuBar-box-shadow: $black;
+
+$promoBox-text-lighten: $orange;
 
 /* SETTINGS */
 
