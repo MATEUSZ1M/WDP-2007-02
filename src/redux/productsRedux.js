@@ -8,6 +8,18 @@ export const getNew = ({ products }) =>
 export const getCompareList = ({ products }) =>
   products.filter(product => product.compare === true);
 
+export const getFeatured = ({ products }) =>
+  products.filter(product => product.oldPrice);
+
+export const getTopSeller = ({ products }) =>
+  products.filter(product => product.topSeller === true);
+
+export const getSale = ({ products }) =>
+  products.filter(product => product.hotDeal === true);
+
+export const getTopRated = ({ products }) =>
+  products.filter(product => product.userStars > 2);
+
 /* action name creator */
 const reducerName = 'product';
 const createActionName = name => `app/${reducerName}/${name}`;
