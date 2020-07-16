@@ -10,6 +10,7 @@
     border-top: 2px solid $darkWhite;
     border-bottom: 2px solid $darkWhite;
     align-items: center;
+
     .control {
       height: 92px;
       width: 30px;
@@ -18,27 +19,33 @@
       justify-content: center;
       align-items: center;
       font-size: 15px;
+
       .icon {
         color: $white;
         font-size: 15px;
       }
+
       &:hover {
         cursor: pointer;
+
         .icon {
           color: $primary;
         }
       }
     }
+
     .logoBox {
       display: flex;
       justify-content: space-between;
       width: 100%;
       padding: 0 30px;
+
       .logo {
         height: 92px;
         width: 142px;
         border: 2px solid $darkWhite;
         padding: 10px;
+
         img {
           object-fit: contain;
         }

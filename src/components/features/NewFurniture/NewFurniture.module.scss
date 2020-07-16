@@ -35,10 +35,12 @@
 
     .menu {
       text-align: center;
+
       ul {
         margin: 0;
         padding: 0;
         list-style: none;
+
         li {
           display: inline-block;
           margin: 0 0.5rem;
@@ -54,6 +56,7 @@
             &.active,
             &:hover {
               @extend %hover;
+
               &::before {
                 content: "";
                 position: absolute;
@@ -95,6 +98,7 @@
             &.active,
             &:hover {
               @extend %hover;
+
               background-color: $primary;
             }
           }
@@ -116,6 +120,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -125,11 +130,12 @@
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
 }
-  
+
 @media (max-width: $desktop-breakpoint) {
   .root .panelBar {
     .heading h3 {
@@ -141,7 +147,7 @@
 
       ul li {
         font-weight: 400;
-        
+
         a {
           font-size: 14px;
         }

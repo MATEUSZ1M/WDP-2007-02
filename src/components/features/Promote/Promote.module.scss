@@ -1,4 +1,5 @@
 @import "../../../styles/settings.scss";
+
 .root {
   margin-top: 2rem;
 
@@ -11,16 +12,15 @@
       height: 100%;
     }
 
-    .leftPanel:last-child{
+    .leftPanel:last-child {
       z-index: 0;
     }
 
-    .rightPanel{
+    .rightPanel {
       height: 100%;
       display: inline-flex;
       flex-direction: column;
       flex-grow: 1;
-
 
       .button {
         z-index: 100;
@@ -31,7 +31,7 @@
         font-size: 1.2rem;
         justify-content: center;
 
-        *{
+        * {
           align-self: center;
         }
       }
@@ -39,13 +39,13 @@
       .image {
         position: relative;
 
-        img{
+        img {
           width: 100%;
           height: 100%;
           object-fit: cover;
         }
 
-        .imageHover{
+        .imageHover {
           height: 50%;
           width: 100%;
           color: $pureWhite;
@@ -59,31 +59,30 @@
           align-items: center;
           justify-content: center;
 
-          .title{
+          .title {
             font-weight: 200;
             text-transform: uppercase;
             text-align: center;
 
-            h4{
+            h4 {
               font-size: 3rem;
               font-weight: inherit;
               font-weight: 200;
             }
 
-            span{
+            span {
               font-weight: bold;
             }
 
-            .subtitle{
+            .subtitle {
               font-size: 1.2rem;
             }
           }
 
-          .shopNow{
+          .shopNow {
             position: absolute;
             top: 100%;
             transform: translateY(-50%);
-
             background-color: $color-light;
             color: $text-color;
             font-size: 16px;
@@ -93,6 +92,7 @@
 
             &:not(.noHover):hover {
               @extend %hover;
+
               color: $color-light !important;
               background-color: $primary;
               text-decoration: none;
@@ -101,14 +101,14 @@
         }
       }
 
-      .swipe{
+      .swipe {
         overflow: hidden;
-        & > :first-child{
+
+        & > :first-child {
           height: 100%;
         }
       }
     }
-
 
     .heading {
       width: 100%;
@@ -154,6 +154,7 @@
               &.active,
               &:hover {
                 @extend %hover;
+
                 background-color: $primary;
               }
             }
@@ -161,6 +162,5 @@
         }
       }
     }
-
   }
 }

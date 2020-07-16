@@ -17,7 +17,10 @@
     "test": "react-scripts test --noStackTrace",
     "test-all": "react-scripts test --watchAll=false --noStackTrace",
     "test-related": "react-scripts test --watchAll=false --noStackTrace --findRelatedTests",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint:scss": "stylelint \"src/**/*.scss\" --syntax scss",
+    "lint:scss:fix": "stylelint \"src/**/*.scss\" --syntax scss --fix"
+
   },
   "husky": {
     "hooks": {
@@ -30,7 +33,11 @@
       "eslint --fix",
       "prettier --write",
       "git add"
-    ]
+    ],
+    "src/**/*.scss": [
+      "stylelint --syntax scss --fix",
+       "git add"
+    ]	    
   },
   "browserslist": {
     "production": [
@@ -71,6 +78,8 @@
     "lint-staged": "^9.4.0",
     "onchange": "^6.1.0",
     "prettier": "^1.19.1",
-    "redux-devtools-extension": "^2.13.8"
+    "redux-devtools-extension": "^2.13.8",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0"
   }
 }

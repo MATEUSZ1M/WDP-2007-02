@@ -13,6 +13,7 @@
       position: center;
       repeat: no-repeat;
     }
+
     overflow: hidden;
     align-items: flex-end;
 
@@ -29,7 +30,7 @@
         font-size: 12px;
       }
 
-      .timer{
+      .timer {
         width: 100%;
         position: absolute;
         top: 100%;
@@ -41,8 +42,7 @@
         font-size: 12px;
         padding-bottom: 20px;
 
-
-        div{
+        div {
           color: $pureWhite;
           margin: 0 5px;
           background-color: $lightBlack;
@@ -54,7 +54,7 @@
           align-items: center;
           justify-content: center;
 
-          span{
+          span {
             line-height: 1rem;
             font-size: 1.3rem;
           }
@@ -103,19 +103,23 @@
     justify-content: space-between;
     align-items: center;
   }
+
   &:hover {
     .buttons .options {
       @extend %hover;
+
       opacity: 1;
     }
 
-    .buttons .timer{
+    .buttons .timer {
       @extend %hover;
+
       opacity: 1;
     }
 
     .actions .price .priceBtn {
       @extend %hover;
+
       background-color: $primary;
     }
   }
@@ -142,6 +146,7 @@
         text-align: center;
       }
     }
+
     .content {
       padding: 10px;
 
@@ -157,7 +162,6 @@
         margin: 10px 0;
       }
     }
-
   }
 }
 
