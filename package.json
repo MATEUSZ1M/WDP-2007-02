@@ -20,7 +20,6 @@
     "eject": "react-scripts eject",
     "lint:scss": "stylelint \"src/**/*.scss\" --syntax scss",
     "lint:scss:fix": "stylelint \"src/**/*.scss\" --syntax scss --fix"
-
   },
   "husky": {
     "hooks": {
@@ -36,8 +35,9 @@
     ],
     "src/**/*.scss": [
       "stylelint --syntax scss --fix",
-       "git add"
-    ]	    
+      "prettier --write",
+      "git add"
+    ]
   },
   "browserslist": {
     "production": [
