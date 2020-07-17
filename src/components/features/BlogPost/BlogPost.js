@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import PropTypes from 'prop-types';
 import styles from './BlogPost.module.scss';
 import Blog from '../../features/Blog/Blog';
+import Swipeable from '../../common/Swipeable/Swipeable';
 
 const BlogPost = ({ posts }) => {
   return (
@@ -30,11 +31,13 @@ const BlogPost = ({ posts }) => {
             </div>
           </div>
         </div>
-        <div className={styles.blog}>
-          {posts.map(post => {
-            return <Blog {...post} key={post.id} />;
-          })}
-        </div>
+        <Swipeable>
+          <div className={styles.blog}>
+            {posts.map(post => {
+              return <Blog {...post} key={post.id} />;
+            })}
+          </div>
+        </Swipeable>
       </div>
     </div>
   );

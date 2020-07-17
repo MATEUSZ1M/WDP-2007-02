@@ -1637,6 +1637,7 @@ const initialState = {
   ],
   feedbacks: [
     {
+      id: 0,
       name: 'Zibi Boniek',
       image: 'https://dimg.wprost.pl/_thumb/d0/4b/e9ff336fd1b1ee5b288f0c3096f8.jpeg',
       status: 'Future client',
@@ -1644,6 +1645,7 @@ const initialState = {
         'Rejent był maleńki ogródek, ścieżkami porznięty pełen bukietów trawy angielskiej i przepraszał Sędziego. Sędzia nigdy sługom należy chartu Sokołowi. ',
     },
     {
+      id: 1,
       name: 'Fernando Alonso',
       image:
         'https://bi.im-g.pl/im/3a/16/17/z24210234AMP,Fernando-Alonso--Czy-Fernando-Alonso-wroci-do-Form.jpg',
@@ -1652,6 +1654,7 @@ const initialState = {
         'Lorem ipsum dolor sit amet, his ancillae signiferumque in, vel inermis vituperatoribus eu. An cum quando detracto, at intellegebat conclusionemque pro, usu illum erant mentitum no. In posse porro cum, eam saepe veniam delicatissimi ne, ei vidisse menandri repudiare eam. Inani delicata an eam. ',
     },
     {
+      id: 2,
       name: 'Lukas Podolski',
       image:
         'https://upload.wikimedia.org/wikipedia/commons/2/20/2016209185709_2016-07-27_Champions_for_Charity_-_Sven_-_1D_X_-_0125_-_DV3P4718_mod.jpg',
@@ -1710,7 +1713,7 @@ const initialState = {
         'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
     },
     {
-      id: 1,
+      id: 0,
       image:
         'https://images.pexels.com/photos/545012/pexels-photo-545012.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       imageTitle: 'image',
@@ -1721,7 +1724,7 @@ const initialState = {
         'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
     },
     {
-      id: 2,
+      id: 0,
       image:
         'https://images.pexels.com/photos/212269/pexels-photo-212269.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       imageTitle: 'image',
