@@ -62,3 +62,9 @@
 		}
 	}
 }
+
+@media (max-width: $desktop-breakpoint) {
+.blog {
+	flex-direction: column;
+	}
+}
