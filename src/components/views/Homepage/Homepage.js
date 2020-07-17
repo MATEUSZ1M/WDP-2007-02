@@ -10,6 +10,7 @@ import Promote from '../../features/Promote/PromoteContainer';
 import Feedbacks from '../../features/Feedback/FeedbackContainer';
 import Gallery from '../../features/Gallery/GalleryContainer';
 import Brands from '../../features/Brands/BrandsContainer';
+import BlogPost from '../../features/BlogPost/BlogPostContainer.js';
 
 const Homepage = () => (
   <div className={styles.root}>
@@ -17,6 +18,7 @@ const Homepage = () => (
     <FeatureBoxes />
     <PromotionBox />
     <NewFurniture />
+    <BlogPost />
     <Gallery />
     <Brands />
     <Feedbacks />
