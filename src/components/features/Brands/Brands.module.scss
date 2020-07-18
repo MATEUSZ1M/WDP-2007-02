@@ -6,20 +6,20 @@
     height: 140px;
     width: 100%;
     margin: 60px auto;
-    border-top: 2px solid $darkWhite;
-    border-bottom: 2px solid $darkWhite;
+    border-top: 2px solid $brands-border-color;
+    border-bottom: 2px solid $brands-border-color;
     align-items: center;
     justify-content: space-between;
     .control {
       height: 92px;
       width: 30px;
-      background: $lightBlack;
+      background: $brands-control-buton;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 15px;
       .icon {
-        color: $white;
+        color: $brands-icon-color;
         font-size: 15px;
       }
       &:hover {
@@ -40,7 +40,7 @@
       justify-content: space-evenly;
       width: 100%;
       .logo {
-        border: 2px solid $darkWhite;
+        border: 2px solid $brands-border-color;
         padding: 10px;
         img {
           width: 100%;
