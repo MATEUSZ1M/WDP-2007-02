@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import styles from './Feedback.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
+import Swipeable from '../../common/Swipeable/Swipeable';
 
 class Feedback extends React.Component {
   render() {
     const { feedbacks } = this.props;
+
     return (
       <div className={styles.root}>
-        {feedbacks[0] && (
+        {feedbacks && (
           <div className='container'>
             <div className={styles.panel}>
               <div className='row no-gutters align-items-end'>
@@ -33,26 +35,30 @@ class Feedback extends React.Component {
                 </div>
               </div>
             </div>
-            <div className='row'>
-              <div className={'col ' + styles.quote}>
-                <FontAwesomeIcon
-                  icon={faQuoteRight}
-                  className={styles.quotes}
-                ></FontAwesomeIcon>
-                <blockquote className={styles.feedback}>
-                  {feedbacks[0].opinion}
-                </blockquote>
-                <div className={styles.user}>
-                  <div className={styles.userImage}>
-                    <img src={feedbacks[0].image} alt={feedbacks[0].status}></img>
-                  </div>
-                  <div className={styles.name}>
-                    <h4>{feedbacks[0].name}</h4>
-                    <p>{feedbacks[0].status}</p>
+            <Swipeable>
+              {feedbacks.map(item => (
+                <div className='row' key={item.id}>
+                  <div className={'col ' + styles.quote}>
+                    <FontAwesomeIcon
+                      icon={faQuoteRight}
+                      className={styles.quotes}
+                    ></FontAwesomeIcon>
+                    <blockquote key={item.id} className={styles.feedback}>
+                      {item.opinion}
+                    </blockquote>
+                    <div className={styles.user}>
+                      <div className={styles.userImage}>
+                        <img src={item.image} alt={item.status}></img>
+                      </div>
+                      <div className={styles.name}>
+                        <h4>{item.name}</h4>
+                        <p>{item.status}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              ))}
+            </Swipeable>
           </div>
         )}
       </div>
