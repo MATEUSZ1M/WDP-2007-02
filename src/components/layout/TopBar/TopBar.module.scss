@@ -19,6 +19,7 @@
 
         &:hover {
           @extend %hover;
+
           color: $primary;
           text-decoration: none;
         }
@@ -43,7 +44,8 @@
   }
 
   @media (max-width: $mobile-breakpoint) {
-    .topMenu, .topOptions {
+    .topMenu,
+    .topOptions {
       padding: 0;
     }
 

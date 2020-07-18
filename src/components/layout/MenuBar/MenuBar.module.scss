@@ -64,6 +64,7 @@
       &:hover,
       &.active {
         @extend %hover;
+
         background-color: $primary;
         color: $color-light;
         border-color: $primary;
@@ -83,6 +84,7 @@
     justify-content: center;
     order: 1;
   }
+
   .menu {
     justify-content: center;
     margin: 0;
@@ -96,7 +98,7 @@
       order: 0;
       flex: 80%;
     }
-    
+
     .hamburger_label {
       display: flex;
       flex: 20%;
@@ -107,7 +109,7 @@
     }
 
     .hamburger_button:checked ~ .menu {
-      visibility:visible;
+      visibility: visible;
       height: 100vh;
     }
 
@@ -127,6 +129,7 @@
           justify-content: center;
           border-bottom: 1px solid $form-border-color;
         }
+
         li:last-child {
           border-bottom: 0;
         }

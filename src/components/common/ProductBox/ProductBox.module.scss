@@ -13,6 +13,7 @@
       position: center;
       repeat: no-repeat;
     }
+
     overflow: hidden;
     align-items: flex-end;
 
@@ -30,6 +31,7 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+
       .options {
         opacity: 0;
         font-size: 12px;
@@ -77,14 +79,17 @@
     justify-content: space-between;
     align-items: center;
   }
+
   &:hover {
     .buttons .options {
       @extend %hover;
+
       opacity: 1;
     }
 
     .actions .price .priceBtn {
       @extend %hover;
+
       background-color: $primary;
     }
   }
@@ -106,11 +111,12 @@
   .root {
     .photo .buttons {
       flex-direction: column;
-      
+
       .options {
         text-align: center;
       }
     }
+
     .content {
       padding: 10px;
 
@@ -126,7 +132,6 @@
         margin: 10px 0;
       }
     }
-    
   }
 }
 
