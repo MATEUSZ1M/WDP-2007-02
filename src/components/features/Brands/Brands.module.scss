@@ -2,7 +2,6 @@
 
 .root {
   .wrapper {
-    padding: 60px 0;
     display: flex;
     height: 140px;
     width: 100%;
@@ -10,6 +9,7 @@
     border-top: 2px solid $darkWhite;
     border-bottom: 2px solid $darkWhite;
     align-items: center;
+    justify-content: space-between;
     .control {
       height: 92px;
       width: 30px;
@@ -30,18 +30,21 @@
       }
     }
     .logoBox {
+      width: 90%;
+      margin: 0 auto;
+      }
+    }
+
+    .logoFrame {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       width: 100%;
-      padding: 0 30px;
-      overflow: hidden;
       .logo {
         border: 2px solid $darkWhite;
         padding: 10px;
         img {
-          object-fit: contain;
+          width: 100%;
         }
-      }
     }
   }
 }

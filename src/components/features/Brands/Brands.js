@@ -43,14 +43,14 @@ class Brands extends React.Component {
     const { brands, device } = this.props;
     const { activePage } = this.state;
 
-    const elementsPerDevice = device === 'mobile' ? 2 : device === 'tablet' ? 3 : 8;
+    const elementsPerDevice = device === 'mobile' ? 2 : device === 'tablet' ? 3 : 6;
 
     const pagesCount = Math.ceil(brands.length / elementsPerDevice);
 
     const swipeContent = [];
     for (let page = 0; page < pagesCount; page++) {
       swipeContent.push(
-        <div key={page} className={styles.logoBox}>
+        <div key={page} className={styles.logoFrame}>
           {brands
             .slice(page * elementsPerDevice, (page + 1) * elementsPerDevice)
             .map(item => (
