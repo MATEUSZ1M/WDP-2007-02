@@ -85,3 +85,17 @@
     }
   }
 }
+
+@media (max-width: $mobile-breakpoint) {
+  .menuWrapper,
+  .optionsList {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  img {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+}
