@@ -46,6 +46,7 @@
 
   .bottomBar {
     background-color: $footer-claim-bg;
+    height: 185px;
 
     :global(.container) > :global(.row) {
       height: 95px;
