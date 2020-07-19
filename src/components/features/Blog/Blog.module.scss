@@ -1,0 +1,114 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  position: relative;
+  padding: 1rem 10px;
+
+  .row {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      text-decoration: none;
+
+      .postWrapper .title {
+        color: $primary;
+      }
+
+      .postWrapper .buttonFirst {
+        background-color: $primary;
+        border: none;
+      }
+    }
+
+    .postWrapper {
+      padding: 35px;
+
+      .title {
+        color: $mediumBlack;
+        letter-spacing: 1.1px;
+        font-weight: bold;
+        line-height: 24px;
+        font-size: 1.125rem;
+        text-align: center;
+      }
+
+      p {
+        font-size: 1rem;
+        color: $mediumBlack;
+        text-align: justify;
+        line-height: 24px;
+      }
+
+      .buttonFirst {
+        text-transform: uppercase;
+        font-weight: bold;
+        position: relative;
+        left: 26%;
+        top: 15px;
+        padding: 10px 24px;
+        text-decoration: none;
+        text-align: center;
+        color: $pureWhite;
+        background-color: $lightBlack;
+      }
+    }
+
+    .images {
+      position: relative;
+      background: {
+        color: $pureWhite;
+        size: cover;
+        position: center;
+        height: 100%;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      .options {
+        font-size: 0.875rem;
+        width: 80%;
+        padding: 10px 15px;
+        display: flex;
+        position: absolute;
+        margin-left: 10%;
+        margin-right: 10%;
+        background-color: white;
+        bottom: 0;
+      }
+
+      .date {
+        text-align: left;
+        color: $mediumGray;
+      }
+
+      .comments {
+        text-align: right;
+        color: $mediumGray;
+      }
+
+      * {
+        flex: 2 4 auto;
+      }
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+@media (max-width: $desktop-breakpoint) {
+  .root {
+    .row {
+      .postWrapper {
+        .buttonFirst {
+          left: calc((100% / 2) - 48px);
+        }
+      }
+    }
+  }
+}

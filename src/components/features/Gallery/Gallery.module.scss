@@ -1,0 +1,307 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  margin-bottom: 2rem;
+
+  .leftPanel {
+    margin-bottom: 30px;
+    position: relative;
+
+    .heading {
+      position: relative;
+      margin-bottom: 30px;
+      border-bottom: 4px solid $gallery-border;
+
+      h3 {
+        color: $primary;
+        text-transform: uppercase;
+        font-size: 20px;
+        line-height: 38px;
+        margin: 0;
+        letter-spacing: 1px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 45px;
+        border-bottom: 4px solid $primary;
+      }
+    }
+
+    .menu {
+      ul {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        justify-content: space-evenly;
+
+        li {
+          list-style-type: none;
+          width: 100%;
+          text-align: center;
+
+          &:last-of-type {
+            a {
+              font-size: 16px;
+              border-right: 1px solid $gallery-border;
+            }
+          }
+
+          a {
+            line-height: 2.5rem;
+            display: block;
+            position: relative;
+            font-weight: 600;
+            border: 1px solid $gallery-border;
+            border-right: none;
+            cursor: pointer;
+            text-transform: uppercase;
+
+            &.active,
+            &:hover {
+              color: $primary;
+
+              @extend %hover;
+
+              &::before {
+                content: "";
+                position: absolute;
+                top: -4px;
+                left: 0;
+                width: 100%;
+                border-top: 4px solid $primary;
+              }
+            }
+
+            &.active {
+              background-color: $gallery-bg;
+              border-bottom-color: $gallery-bg;
+            }
+          }
+        }
+      }
+    }
+
+    .product {
+      border: 1px solid $gallery-border;
+      border-top: none;
+      background-color: $gallery-bg;
+      position: relative;
+
+      .photo {
+        background-position: center;
+        overflow: hidden;
+        padding: 50px;
+
+        img {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+        }
+      }
+
+      .buttons {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+
+        .buttonWrapper {
+          span {
+            font-size: 10px;
+            background-color: $gallery-black;
+            color: $color-light;
+            padding: 5px 10px;
+            position: relative;
+            opacity: 0;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: -4px;
+              height: 8px;
+              width: 8px;
+              background-color: $gallery-black;
+              transform: translateY(-50%) rotate(45deg);
+              z-index: -1;
+            }
+          }
+
+          .button {
+            margin-top: 5px;
+            width: 37px;
+            text-align: center;
+            cursor: pointer;
+
+            &:hover {
+              color: $primary;
+              background: none;
+              border-color: $primary;
+
+              + span {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+
+      .priceWrapper {
+        position: absolute;
+        bottom: 28%;
+        right: 110px;
+        transform: translateX(50%);
+        background-color: rgba($gallery-price-bg, 0.9);
+        border-radius: 50%;
+        width: 90px;
+        height: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+
+        .price {
+          color: $color-light;
+          font-weight: 600;
+        }
+
+        .oldPrice {
+          color: $color-light;
+          font-size: 0.8rem;
+          text-decoration: line-through;
+        }
+      }
+
+      .stars {
+        position: absolute;
+        bottom: 10%;
+        right: 4px;
+        background-color: $color-light;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 30px;
+        box-shadow: -1px 2px 5px rgba($gallery-black, 0.75);
+        overflow: hidden;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          height: 30px;
+          width: 30px;
+          background-color: $gallery-black;
+          z-index: 1;
+        }
+
+        &::before {
+          top: 0;
+          left: -15px;
+          transform: translateY(-50%) rotate(45deg);
+        }
+
+        &::after {
+          bottom: 0;
+          right: -15px;
+          transform: translateY(50%) rotate(45deg);
+        }
+      }
+    }
+
+    .miniatures {
+      margin: 0;
+      padding: 5px;
+      display: flex;
+      justify-content: space-between;
+      height: 70px;
+      align-items: stretch;
+      border: 1px solid $gallery-border;
+      border-top: none;
+
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .imgWrapper {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        width: 14%;
+        position: relative;
+
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background-color: rgba($gallery-black, 0.5);
+        }
+
+        &:first-of-type::after {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .rightPanel {
+    background-color: $gallery-bg;
+    position: relative;
+
+    .photo {
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      height: 100%;
+      padding: 10px;
+
+      img {
+        width: 100%;
+        padding-bottom: 20px;
+        object-fit: cover;
+      }
+    }
+
+    .content {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+
+      .contentPrice {
+        text-transform: uppercase;
+
+        span {
+          font-size: 2.5rem;
+          font-weight: 600;
+          color: $galleryAd-green;
+        }
+      }
+
+      h2 {
+        color: $primary;
+        font-weight: 600;
+      }
+
+      .button {
+        margin-top: 20px;
+      }
+    }
+  }
+}

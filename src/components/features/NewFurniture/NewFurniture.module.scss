@@ -1,12 +1,14 @@
 @import "../../../styles/settings.scss";
 
 .root {
+  margin-bottom: 2rem;
+
   .panelBar {
     margin-bottom: 30px;
     position: relative;
 
     :global(.row) > * {
-      border-bottom: 4px solid #e2e2e2;
+      border-bottom: 4px solid $newFurniture-border;
     }
 
     .heading {
@@ -33,17 +35,19 @@
 
     .menu {
       text-align: center;
+
       ul {
         margin: 0;
         padding: 0;
         list-style: none;
+
         li {
           display: inline-block;
           margin: 0 0.5rem;
           font-weight: 600;
 
           a {
-            color: rgb(42, 42, 42);
+            color: $text-color;
             position: relative;
             text-decoration: none;
             font-size: 18px;
@@ -51,6 +55,8 @@
 
             &.active,
             &:hover {
+              @extend %hover;
+
               &::before {
                 content: "";
                 position: absolute;
@@ -74,7 +80,7 @@
         margin: 0;
         padding: 0 0 0 1rem;
         list-style: none;
-        background-color: #ffffff;
+        background-color: $color-light;
         transform: translateY(15px);
 
         li {
@@ -86,15 +92,96 @@
             width: 13px;
             height: 13px;
             border-radius: 6px;
-            background-color: #e1e1e1;
+            background-color: $newFurniture-dots-bg;
             font-size: 0;
 
             &.active,
             &:hover {
+              @extend %hover;
+
               background-color: $primary;
             }
           }
         }
+      }
+    }
+  }
+
+  .fadeIn {
+    animation: fade-in 250ms ease-in;
+  }
+
+  .fadeOut {
+    animation: fade-out 250ms ease-out;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: $desktop-breakpoint) {
+  .root .panelBar {
+    .heading h3 {
+      font-size: 16px;
+    }
+
+    .menu {
+      text-align: right;
+
+      ul li {
+        font-weight: 400;
+
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .dots {
+      position: relative;
+      border: none;
+
+      ul {
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        background-color: inherit;
+
+        li {
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .root .panelBar {
+    .menu {
+      text-align: left;
+      border: none;
+
+      ul li {
+        margin: 0;
+        padding: 10px 10px 0 0;
+        border-bottom: 4px solid $newFurniture-border;
       }
     }
   }
