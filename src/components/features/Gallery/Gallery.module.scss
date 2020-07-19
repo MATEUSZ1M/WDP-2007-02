@@ -65,6 +65,7 @@
               color: $primary;
 
               @extend %hover;
+
               &::before {
                 content: "";
                 position: absolute;
@@ -78,7 +79,7 @@
             &.active {
               background-color: $gallery-bg;
               border-bottom-color: $gallery-bg;
-            } 
+            }
           }
         }
       }
@@ -137,7 +138,7 @@
             width: 37px;
             text-align: center;
             cursor: pointer;
-  
+
             &:hover {
               color: $primary;
               background: none;
@@ -165,7 +166,7 @@
         justify-content: center;
         align-items: center;
         z-index: 2;
-        
+
         .price {
           color: $color-light;
           font-weight: 600;
@@ -190,7 +191,7 @@
         padding: 15px 30px;
         box-shadow: -1px 2px 5px rgba($gallery-black, 0.75);
         overflow: hidden;
-        
+
         &::before,
         &::after {
           content: "";
@@ -223,13 +224,12 @@
       height: 70px;
       align-items: stretch;
       border: 1px solid $gallery-border;
-      border-top: none; 
-      
+      border-top: none;
+
       .button {
         display: flex;
         justify-content: center;
         align-items: center;
-
       }
 
       .imgWrapper {
@@ -254,7 +254,7 @@
           background-color: rgba($gallery-black, 0.5);
         }
 
-        &:first-of-type:after {
+        &:first-of-type::after {
           opacity: 0;
         }
       }

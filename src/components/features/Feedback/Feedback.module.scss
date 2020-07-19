@@ -1,13 +1,17 @@
 @import "../../../styles/settings.scss";
+
 .root {
   .panel {
     margin-bottom: 1.875rem;
     position: relative;
+
     :global(.row) {
       border-bottom: 4px solid $darkWhite;
     }
+
     .heading {
       position: relative;
+
       h3 {
         color: $primary;
         text-transform: uppercase;
@@ -16,6 +20,7 @@
         margin: 0;
         letter-spacing: 2.5px;
       }
+
       &::before {
         content: "";
         position: absolute;
@@ -25,19 +30,23 @@
         border-bottom: 4px solid $primary;
       }
     }
+
     .dots {
       position: absolute;
-			top: 0;
-			right: 0;
+      top: 0;
+      right: 0;
       cursor: pointer;
+
       ul {
         margin: 0;
         padding: 0 0 0 1rem;
         list-style: none;
         background-color: $pureWhite;
+
         li {
           display: inline-block;
           margin-left: 0.5rem;
+
           a {
             display: block;
             width: 13px;
@@ -45,6 +54,7 @@
             border-radius: 6px;
             background-color: $white;
             font-size: 0;
+
             &.active,
             &:hover {
               background-color: $primary;
@@ -53,20 +63,24 @@
         }
       }
     }
-	}
-	blockquote{
-		font-style: italic;
-	}
+  }
+
+  blockquote {
+    font-style: italic;
+  }
+
   .quote {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 60px;
+
     .quotes {
       font-size: 1.3rem;
       text-align: center;
-      margin-bottom: 1.25rem
+      margin-bottom: 1.25rem;
     }
+
     .feedback {
       font-size: 1rem;
       color: $darkGray;
@@ -74,25 +88,29 @@
       margin-bottom: 1.25rem;
       width: 80%;
     }
+
     .user {
       display: flex;
-			align-items: center;
-			justify-content: center;
-      color:$darkGray;
+      align-items: center;
+      justify-content: center;
+      color: $darkGray;
       font-size: 1rem;
+
       .userImage img {
         width: 40px;
         height: 40px;
         object-fit: cover;
         border-radius: 10px;
-        margin-right: 1.25rem
+        margin-right: 1.25rem;
       }
+
       .name {
         h4 {
           font-weight: 700;
           font-size: 1rem;
           margin: 0;
         }
+
         p {
           font-size: 0.8rem;
           margin: 0;
