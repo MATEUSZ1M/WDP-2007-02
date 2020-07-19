@@ -45,7 +45,10 @@ class Gallery extends React.Component {
                 <ul>
                   {categories.map(item => (
                     <li key={item.id}>
-                      <a className={item.id === activeCategory && styles.active}>
+                      <a
+                        href='/#'
+                        className={item.id === activeCategory && styles.active}
+                      >
                         {item.name}
                       </a>
                     </li>

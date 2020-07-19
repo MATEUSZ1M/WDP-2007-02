@@ -16,19 +16,19 @@ const ProductSearch = () => (
           <span>Select category</span>
           <ul className={styles.submenu}>
             <li>
-              <a href='#'>Category 1</a>
+              <a href='/#'>Category 1</a>
             </li>
             <li>
-              <a href='#'>Category 2</a>
+              <a href='/#'>Category 2</a>
             </li>
             <li>
-              <a href='#'>Category 3</a>
+              <a href='/#'>Category 3</a>
             </li>
             <li>
-              <a href='#'>Category 4</a>
+              <a href='/#'>Category 4</a>
             </li>
             <li>
-              <a href='#'>Category 5</a>
+              <a href='/#'>Category 5</a>
             </li>
           </ul>
         </li>
