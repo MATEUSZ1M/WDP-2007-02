@@ -103,3 +103,21 @@
     }
   }
 }
+
+@media (max-width: $desktop-breakpoint) {
+  .root {
+    .promoContainer {
+      height: auto;
+      flex-direction: row;
+    }
+  }
+}
+
+@media (max-width: $tablet-breakpoint) {
+  .root {
+    .promoContainer div:nth-child(2),
+    div:nth-child(3) {
+      flex: 100%;
+    }
+  }
+}
