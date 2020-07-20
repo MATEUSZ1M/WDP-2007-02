@@ -110,7 +110,11 @@ class Gallery extends React.Component {
             .map(product => (
               <div
                 key={product.id}
-                className={styles.imgWrapper}
+                className={
+                  product.id === activePhoto
+                    ? styles.imgWrapper + ' ' + styles.activeImage
+                    : styles.imgWrapper
+                }
                 onClick={() => this.handlePhotoChange(product.id)}
               >
                 <img alt={product.name} src={product.img} />
@@ -147,11 +151,7 @@ class Gallery extends React.Component {
                 {categoryProducts.filter(isActive).map(product => (
                   <div key={product.id} className={styles.product}>
                     <div className={styles.photo}>
-                      {product.id === activePhoto ? (
-                        <img alt={product.name} src={product.img} />
-                      ) : (
-                        <img alt={product.name} src={product.img} />
-                      )}
+                      <img alt={product.name} src={product.img} />
                     </div>
                     <div className={styles.buttons}>
                       <div className={styles.buttonWrapper}>
