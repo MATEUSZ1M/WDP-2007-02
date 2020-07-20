@@ -84,7 +84,7 @@ class Promote extends React.Component {
       });
       this.autoplay = setInterval(() => {
         const { leftActivePage } = this.state;
-        if (leftActivePage < 2) {
+        if (leftActivePage < this.categoryProducts.length - 1) {
           this.setState({ leftFade: true });
           setTimeout(
             () =>
@@ -138,10 +138,10 @@ class Promote extends React.Component {
   render() {
     const { products, banners } = this.props;
     const { leftActivePage } = this.state;
-    const categoryProducts = products.filter(item => item.hotDeal === true);
+    this.categoryProducts = products.filter(item => item.hotDeal === true);
 
     const dots = [];
-    for (let i = 0; i < categoryProducts.length; i++) {
+    for (let i = 0; i < this.categoryProducts.length; i++) {
       dots.push(
         <li>
           <a
@@ -174,7 +174,7 @@ class Promote extends React.Component {
                 rightAction={this.leftHandleRightAction}
                 leftAction={this.leftHandleLeftAction}
               >
-                {categoryProducts.map(item => (
+                {this.categoryProducts.map(item => (
                   <div
                     key={item.id}
                     className={this.state.leftFade ? styles.fadeOut : styles.fadeIn}
