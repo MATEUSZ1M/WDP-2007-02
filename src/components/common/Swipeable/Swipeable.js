@@ -19,6 +19,7 @@ const Swipeable = props => {
       slidePrevTransitionStart: props.rightAction,
       slideNextTransitionStart: props.leftAction,
     },
+    ...props.params,
   };
 
   return (
@@ -33,6 +34,7 @@ Swipeable.propTypes = {
   rightAction: PropTypes.func,
   leftAction: PropTypes.func,
   activePage: PropTypes.number,
+  params: PropTypes.object,
 };
 
 export default Swipeable;

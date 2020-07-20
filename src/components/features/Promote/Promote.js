@@ -11,12 +11,122 @@ import Button from '../../common/Button/Button';
 
 class Promote extends React.Component {
   state = {
-    activePage: 0,
+    autoplay: true,
+    leftActivePage: 0,
+    leftFade: false,
+    leftManualPageChange: false,
+    rightActivePage: 0,
+    rightFade: false,
   };
+
+  leftHandlePageChange(newPage) {
+    this.setState({ leftFade: true });
+    setTimeout(
+      () =>
+        this.setState({
+          leftActivePage: newPage,
+          leftFade: false,
+          leftManualPageChange: true,
+          autoplay: false,
+        }),
+      100
+    );
+  }
+
+  leftHandleRightAction = () => {
+    const { leftActivePage, leftManualPageChange } = this.state;
+    if (leftManualPageChange) {
+      this.setState({ leftManualPageChange: false });
+    } else if (leftActivePage > 0) {
+      this.setState({ leftActivePage: leftActivePage - 1, autoplay: false });
+    }
+  };
+
+  leftHandleLeftAction = () => {
+    const { leftActivePage, leftManualPageChange } = this.state;
+    if (leftManualPageChange) {
+      this.setState({ leftManualPageChange: false });
+    } else {
+      this.setState({ leftActivePage: leftActivePage + 1, autoplay: false });
+    }
+  };
+
+  handlePrivPage = () => {
+    const { rightActivePage } = this.state;
+    if (rightActivePage > 0) {
+      this.setState({ rightFade: true });
+      setTimeout(
+        () => this.setState({ rightActivePage: rightActivePage - 1, rightFade: false }),
+        100
+      );
+    }
+  };
+
+  handleNextPage = () => {
+    const { rightActivePage } = this.state;
+    if (rightActivePage < this.props.banners.length - 1) {
+      this.setState({ rightFade: true });
+      setTimeout(
+        () => this.setState({ rightActivePage: rightActivePage + 1, rightFade: false }),
+        100
+      );
+    }
+  };
+
+  setAutoplay() {
+    if (this.autoplay === undefined) {
+      this.setState({
+        autoplay: true,
+      });
+      this.autoplay = setInterval(() => {
+        const { leftActivePage } = this.state;
+        if (leftActivePage < 2) {
+          this.setState({ leftFade: true });
+          setTimeout(
+            () =>
+              this.setState({
+                leftActivePage: leftActivePage + 1,
+                leftFade: false,
+                leftManualPageChange: true,
+              }),
+            100
+          );
+        } else {
+          this.setState({ leftFade: true });
+          setTimeout(
+            () =>
+              this.setState({
+                leftActivePage: 0,
+                leftFade: false,
+                leftManualPageChange: true,
+              }),
+            100
+          );
+        }
+      }, 3000);
+    }
+  }
+
+  componentDidMount() {
+    this.setAutoplay();
+  }
+
+  componentDidUpdate() {
+    if (!this.state.autoplay) {
+      clearInterval(this.autoplay);
+      this.autoplay = undefined;
+      setTimeout(() => this.setAutoplay(), 7000);
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.autoplay);
+    this.autoplay = undefined;
+  }
 
   render() {
     const { products, banners } = this.props;
-    const { activePage } = this.state;
+    const { leftActivePage } = this.state;
     const categoryProducts = products.filter(item => item.hotDeal === true);
 
     const dots = [];
@@ -25,8 +135,11 @@ class Promote extends React.Component {
         <li>
           <a
             href='/#'
-            onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
+            onClick={event => {
+              event.preventDefault();
+              return this.leftHandlePageChange(i);
+            }}
+            className={i === leftActivePage && styles.active}
           >
             page {i}
           </a>
@@ -45,9 +158,16 @@ class Promote extends React.Component {
                   <ul>{dots}</ul>
                 </div>
               </div>
-              <Swipeable>
+              <Swipeable
+                activePage={this.state.leftActivePage}
+                rightAction={this.leftHandleRightAction}
+                leftAction={this.leftHandleLeftAction}
+              >
                 {categoryProducts.map(item => (
-                  <div key={item.id}>
+                  <div
+                    key={item.id}
+                    className={this.state.leftFade ? styles.fadeOut : styles.fadeIn}
+                  >
                     <HotDeal {...item} />
                   </div>
                 ))}
@@ -55,9 +175,22 @@ class Promote extends React.Component {
             </div>
             <div className={'col-8 ' + styles.rightPanel}>
               <div className={styles.swipe}>
-                <Swipeable>
+                <Swipeable
+                  activePage={this.state.rightActivePage}
+                  params={{
+                    noSwiping: true,
+                    grabCursor: false,
+                  }}
+                >
                   {banners.map(item => (
-                    <div key={item.id} className={styles.image}>
+                    <div
+                      key={item.id}
+                      className={
+                        styles.image +
+                        ' ' +
+                        (this.state.rightFade ? styles.fadeOut : styles.fadeIn)
+                      }
+                    >
                       <img src={item.url} alt={item.name} />
                       <div className={styles.imageHover}>
                         <div className={styles.title}>
@@ -75,10 +208,24 @@ class Promote extends React.Component {
                 </Swipeable>
               </div>
               <div>
-                <Button className={styles.button} variant='small'>
+                <Button
+                  onClick={event => {
+                    event.preventDefault();
+                    return this.handlePrivPage();
+                  }}
+                  className={styles.button}
+                  variant='small'
+                >
                   <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
                 </Button>
-                <Button className={styles.button} variant='small'>
+                <Button
+                  onClick={event => {
+                    event.preventDefault();
+                    return this.handleNextPage();
+                  }}
+                  className={styles.button}
+                  variant='small'
+                >
                   <FontAwesomeIcon icon={faAngleRight}></FontAwesomeIcon>
                 </Button>
               </div>
