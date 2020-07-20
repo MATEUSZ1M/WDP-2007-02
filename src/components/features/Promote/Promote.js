@@ -36,8 +36,10 @@ class Promote extends React.Component {
   leftHandleRightAction = () => {
     const { leftActivePage, leftManualPageChange } = this.state;
     if (leftManualPageChange) {
+      this.clearAutoplayTimeout();
       this.setState({ leftManualPageChange: false });
     } else if (leftActivePage > 0) {
+      this.clearAutoplayTimeout();
       this.setState({ leftActivePage: leftActivePage - 1, autoplay: false });
     }
   };
@@ -45,8 +47,10 @@ class Promote extends React.Component {
   leftHandleLeftAction = () => {
     const { leftActivePage, leftManualPageChange } = this.state;
     if (leftManualPageChange) {
+      this.clearAutoplayTimeout();
       this.setState({ leftManualPageChange: false });
     } else {
+      this.clearAutoplayTimeout();
       this.setState({ leftActivePage: leftActivePage + 1, autoplay: false });
     }
   };
@@ -107,15 +111,22 @@ class Promote extends React.Component {
     }
   }
 
+  clearAutoplayTimeout() {
+    if (this.autoplayTimeout !== undefined) {
+      clearTimeout(this.autoplayTimeout);
+      this.autoplayTimeout = undefined;
+    }
+  }
+
   componentDidMount() {
     this.setAutoplay();
   }
 
   componentDidUpdate() {
-    if (!this.state.autoplay) {
+    if (!this.state.autoplay && this.autoplayTimeout === undefined) {
       clearInterval(this.autoplay);
       this.autoplay = undefined;
-      setTimeout(() => this.setAutoplay(), 7000);
+      this.autoplayTimeout = setTimeout(() => this.setAutoplay(), 7000);
     }
   }
 
