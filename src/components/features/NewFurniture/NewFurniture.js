@@ -61,7 +61,8 @@ class NewFurniture extends React.Component {
     const { activeCategory, activePage, fade } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const elementsPerDevice = device === 'mobile' ? 2 : device === 'tablet' ? 3 : 8;
+    const elementsPerDevice =
+      device === 'smobile' ? 1 : device === 'mobile' ? 2 : device === 'tablet' ? 3 : 8;
 
     const pagesCount = Math.ceil(categoryProducts.length / elementsPerDevice);
 
