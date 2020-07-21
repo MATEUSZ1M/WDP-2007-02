@@ -12,7 +12,7 @@
     justify-content: space-between;
 
     .control {
-      height: 92px;
+      height: 90px;
       width: 30px;
       background: $brands-control-buton;
       display: flex;
@@ -37,6 +37,7 @@
     .logoBox {
       width: 90%;
       margin: 0 auto;
+      height: 90px;
     }
   }
 
@@ -51,6 +52,16 @@
 
       img {
         width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .root {
+    .wrapper {
+      .logoBox {
+        width: 80%;
       }
     }
   }

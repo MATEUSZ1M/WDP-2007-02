@@ -20,7 +20,7 @@ const Stars = ({ id, stars, userStars, ...props }) => {
           count = hover;
         }
         return (
-          <a key={i} href='#' className={userStars ? styles.userStars : ''}>
+          <a key={i} href='/#' className={userStars ? styles.userStars : ''}>
             {i <= count ? (
               <FontAwesomeIcon
                 onMouseOver={() => {

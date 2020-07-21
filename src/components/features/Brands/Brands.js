@@ -43,7 +43,8 @@ class Brands extends React.Component {
     const { brands, device } = this.props;
     const { activePage } = this.state;
 
-    const elementsPerDevice = device === 'mobile' ? 2 : device === 'tablet' ? 3 : 6;
+    const elementsPerDevice =
+      device === 'smobile' ? 1 : device === 'mobile' ? 2 : device === 'tablet' ? 3 : 6;
 
     const pagesCount = Math.ceil(brands.length / elementsPerDevice);
 

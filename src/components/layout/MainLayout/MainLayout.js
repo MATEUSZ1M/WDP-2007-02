@@ -15,8 +15,8 @@ class MainLayout extends React.Component {
       <div>
         <Header />
         {children}
-        <CompareList />
         <Footer />
+        <CompareList />
       </div>
     );
   }

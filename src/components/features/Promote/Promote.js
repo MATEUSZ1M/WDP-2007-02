@@ -24,6 +24,7 @@ class Promote extends React.Component {
       dots.push(
         <li>
           <a
+            href='/#'
             onClick={() => this.handlePageChange(i)}
             className={i === activePage && styles.active}
           >
