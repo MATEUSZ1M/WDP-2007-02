@@ -91,16 +91,9 @@ class Gallery extends React.Component {
     const pageIncrease = () => {
       if (activePage === pagesCount - 1) {
         return;
-      } else {
-        this.handlePageChange(activePage + 1);
       }
+      this.handlePageChange(activePage + 1);
     };
-
-    /*const pageIncrease = () => {
-      if (activePage < pagesCount - 1) {
-        this.handlePageChange(activePage + 1);
-      } 
-    }; */
 
     const isActive = product => {
       if (product.id === activePhoto) {
