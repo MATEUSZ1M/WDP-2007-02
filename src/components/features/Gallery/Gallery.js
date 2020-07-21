@@ -77,7 +77,8 @@ class Gallery extends React.Component {
     const { activeCategory, activePage, fade, activePhoto } = this.state;
 
     const categoryProducts = this.props[activeCategory];
-    const elementsPerDevice = device === 'mobile' ? 2 : device === 'tablet' ? 3 : 6;
+    const elementsPerDevice =
+      device === 'smobile' ? 1 : device === 'mobile' ? 2 : device === 'tablet' ? 3 : 6;
 
     const pagesCount = Math.ceil(categoryProducts.length / elementsPerDevice);
 
