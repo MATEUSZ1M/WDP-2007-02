@@ -6,8 +6,58 @@ import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import Swipeable from '../../common/Swipeable/Swipeable';
 
 class Feedback extends React.Component {
+  state = {
+    activePage: 0,
+    fade: false,
+  };
+
+  handlePageChange(newPage) {
+    this.setState({ fade: true });
+    setTimeout(
+      () => this.setState({ activePage: newPage, fade: false, manualPageChange: true }),
+      100
+    );
+  }
+
+  handleRightAction = () => {
+    const { activePage, manualPageChange } = this.state;
+    if (manualPageChange) {
+      this.setState({ manualPageChange: false });
+    } else if (activePage > 0) {
+      this.setState({ activePage: activePage - 1 });
+    }
+  };
+
+  handleLeftAction = () => {
+    const { activePage, manualPageChange } = this.state;
+    if (manualPageChange) {
+      this.setState({ manualPageChange: false });
+    } else {
+      this.setState({ activePage: activePage + 1 });
+    }
+  };
+
   render() {
     const { feedbacks } = this.props;
+    const { activePage, fade } = this.state;
+
+    const dots = [];
+    for (let i = 0; i < feedbacks.length; i++) {
+      dots.push(
+        <li>
+          <a
+            href='/#'
+            onClick={event => {
+              event.preventDefault();
+              return this.handlePageChange(i);
+            }}
+            className={i === activePage && styles.active}
+          >
+            page {i}
+          </a>
+        </li>
+      );
+    }
 
     return (
       <div className={styles.root}>
@@ -18,26 +68,21 @@ class Feedback extends React.Component {
                 <div className={'col-auto ' + styles.heading}>
                   <h3>Client feedback</h3>
                 </div>
-                <div className={'col-auto ' + styles.dots}>
-                  <ul>
-                    <li>
-                      <a className={styles.active} href='/#'>
-                        {' '}
-                      </a>
-                    </li>
-                    <li>
-                      <a href='/#'> </a>
-                    </li>
-                    <li>
-                      <a href='/#'> </a>
-                    </li>
-                  </ul>
+                <div className={'col-12 col-lg-auto ' + styles.dots}>
+                  <ul>{dots}</ul>
                 </div>
               </div>
             </div>
-            <Swipeable>
+            <Swipeable
+              activePage={this.state.activePage}
+              rightAction={this.handleRightAction}
+              leftAction={this.handleLeftAction}
+            >
               {feedbacks.map(item => (
-                <div className='row' key={item.id}>
+                <div
+                  className={'row ml-0 ' + (fade ? styles.fadeOut : styles.fadeIn)}
+                  key={item.id}
+                >
                   <div className={'col ' + styles.quote}>
                     <FontAwesomeIcon
                       icon={faQuoteRight}
