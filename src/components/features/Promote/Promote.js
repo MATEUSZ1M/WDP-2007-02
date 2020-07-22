@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './Promote.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import Swipeable from '../../common/Swipeable/Swipeable';
+import SimpleGallery from '../../common/SimpleGallery/SimpleGalleryContainer';
 import HotDeal from '../../common/HotDeal/HotDealContainer';
-import Button from '../../common/Button/Button';
 
 class Promote extends React.Component {
   state = {
@@ -15,8 +13,6 @@ class Promote extends React.Component {
     leftActivePage: 0,
     leftFade: false,
     leftManualPageChange: false,
-    rightActivePage: 0,
-    rightFade: false,
   };
 
   leftHandlePageChange(newPage) {
@@ -52,28 +48,6 @@ class Promote extends React.Component {
     } else {
       this.clearAutoplayTimeout();
       this.setState({ leftActivePage: leftActivePage + 1, autoplay: false });
-    }
-  };
-
-  handlePrivPage = () => {
-    const { rightActivePage } = this.state;
-    if (rightActivePage > 0) {
-      this.setState({ rightFade: true });
-      setTimeout(
-        () => this.setState({ rightActivePage: rightActivePage - 1, rightFade: false }),
-        100
-      );
-    }
-  };
-
-  handleNextPage = () => {
-    const { rightActivePage } = this.state;
-    if (rightActivePage < this.props.banners.length - 1) {
-      this.setState({ rightFade: true });
-      setTimeout(
-        () => this.setState({ rightActivePage: rightActivePage + 1, rightFade: false }),
-        100
-      );
     }
   };
 
@@ -136,7 +110,7 @@ class Promote extends React.Component {
   }
 
   render() {
-    const { products, banners } = this.props;
+    const { products } = this.props;
     const { leftActivePage } = this.state;
     this.categoryProducts = products.filter(item => item.hotDeal === true);
 
@@ -185,61 +159,7 @@ class Promote extends React.Component {
               </Swipeable>
             </div>
             <div className={'col-8 ' + styles.rightPanel}>
-              <div className={styles.swipe}>
-                <Swipeable
-                  activePage={this.state.rightActivePage}
-                  params={{
-                    noSwiping: true,
-                    grabCursor: false,
-                  }}
-                >
-                  {banners.map(item => (
-                    <div
-                      key={item.id}
-                      className={
-                        styles.image +
-                        ' ' +
-                        (this.state.rightFade ? styles.fadeOut : styles.fadeIn)
-                      }
-                    >
-                      <img src={item.url} alt={item.name} />
-                      <div className={styles.imageHover}>
-                        <div className={styles.title}>
-                          <h4>
-                            indoor <span>Furniture</span>
-                          </h4>
-                          <div className={styles.subtitle}>
-                            save up to 50% of all furniture
-                          </div>
-                        </div>
-                        <Button className={styles.shopNow}>SHOP NOW</Button>
-                      </div>
-                    </div>
-                  ))}
-                </Swipeable>
-              </div>
-              <div>
-                <Button
-                  onClick={event => {
-                    event.preventDefault();
-                    return this.handlePrivPage();
-                  }}
-                  className={styles.button}
-                  variant='small'
-                >
-                  <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
-                </Button>
-                <Button
-                  onClick={event => {
-                    event.preventDefault();
-                    return this.handleNextPage();
-                  }}
-                  className={styles.button}
-                  variant='small'
-                >
-                  <FontAwesomeIcon icon={faAngleRight}></FontAwesomeIcon>
-                </Button>
-              </div>
+              <SimpleGallery />
             </div>
           </div>
         </div>
@@ -260,7 +180,6 @@ Promote.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
-  banners: PropTypes.array,
 };
 
 export default Promote;

@@ -14,12 +14,12 @@ const Swipeable = props => {
 
   const params = {
     spaceBetween: 30,
-    grabCursor: true,
+    noSwiping: props.noSwiping === true ? true : false,
+    grabCursor: props.grabCursor === false ? false : true,
     on: {
       slidePrevTransitionStart: props.rightAction,
       slideNextTransitionStart: props.leftAction,
     },
-    ...props.params,
   };
 
   return (
@@ -34,7 +34,8 @@ Swipeable.propTypes = {
   rightAction: PropTypes.func,
   leftAction: PropTypes.func,
   activePage: PropTypes.number,
-  params: PropTypes.object,
+  noSwiping: PropTypes.bool,
+  grabCursor: PropTypes.bool,
 };
 
 export default Swipeable;
