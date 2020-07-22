@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Blog = ({ date, comments, text, image, imageTitle, title }) => {
   return (
-    <div>
+    <div className='col-4 '>
       <div className={styles.root}>
         <div className={styles.row}>
           <div className={styles.images}>
