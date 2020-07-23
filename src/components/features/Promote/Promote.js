@@ -2,31 +2,129 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './Promote.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import Swipeable from '../../common/Swipeable/Swipeable';
+import SimpleGallery from '../../common/SimpleGallery/SimpleGalleryContainer';
 import HotDeal from '../../common/HotDeal/HotDealContainer';
-import Button from '../../common/Button/Button';
 
 class Promote extends React.Component {
   state = {
-    activePage: 0,
+    autoplay: true,
+    leftActivePage: 0,
+    leftFade: false,
+    leftManualPageChange: false,
   };
 
+  leftHandlePageChange(newPage) {
+    this.setState({ leftFade: true });
+    setTimeout(
+      () =>
+        this.setState({
+          leftActivePage: newPage,
+          leftFade: false,
+          leftManualPageChange: true,
+          autoplay: false,
+        }),
+      100
+    );
+  }
+
+  leftHandleRightAction = () => {
+    const { leftActivePage, leftManualPageChange } = this.state;
+    if (leftManualPageChange) {
+      this.clearAutoplayTimeout();
+      this.setState({ leftManualPageChange: false });
+    } else if (leftActivePage > 0) {
+      this.clearAutoplayTimeout();
+      this.setState({ leftActivePage: leftActivePage - 1, autoplay: false });
+    }
+  };
+
+  leftHandleLeftAction = () => {
+    const { leftActivePage, leftManualPageChange } = this.state;
+    if (leftManualPageChange) {
+      this.clearAutoplayTimeout();
+      this.setState({ leftManualPageChange: false });
+    } else {
+      this.clearAutoplayTimeout();
+      this.setState({ leftActivePage: leftActivePage + 1, autoplay: false });
+    }
+  };
+
+  setAutoplay() {
+    if (this.autoplay === undefined) {
+      this.setState({
+        autoplay: true,
+      });
+      this.autoplay = setInterval(() => {
+        const { leftActivePage } = this.state;
+        if (leftActivePage < this.categoryProducts.length - 1) {
+          this.setState({ leftFade: true });
+          setTimeout(
+            () =>
+              this.setState({
+                leftActivePage: leftActivePage + 1,
+                leftFade: false,
+                leftManualPageChange: true,
+              }),
+            100
+          );
+        } else {
+          this.setState({ leftFade: true });
+          setTimeout(
+            () =>
+              this.setState({
+                leftActivePage: 0,
+                leftFade: false,
+                leftManualPageChange: true,
+              }),
+            100
+          );
+        }
+      }, 3000);
+    }
+  }
+
+  clearAutoplayTimeout() {
+    if (this.autoplayTimeout !== undefined) {
+      clearTimeout(this.autoplayTimeout);
+      this.autoplayTimeout = undefined;
+    }
+  }
+
+  componentDidMount() {
+    this.setAutoplay();
+  }
+
+  componentDidUpdate() {
+    if (!this.state.autoplay && this.autoplayTimeout === undefined) {
+      clearInterval(this.autoplay);
+      this.autoplay = undefined;
+      this.autoplayTimeout = setTimeout(() => this.setAutoplay(), 7000);
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.autoplay);
+    this.autoplay = undefined;
+  }
+
   render() {
-    const { products, banners } = this.props;
-    const { activePage } = this.state;
-    const categoryProducts = products.filter(item => item.hotDeal === true);
+    const { products } = this.props;
+    const { leftActivePage } = this.state;
+    this.categoryProducts = products.filter(item => item.hotDeal === true);
 
     const dots = [];
-    for (let i = 0; i < categoryProducts.length; i++) {
+    for (let i = 0; i < this.categoryProducts.length; i++) {
       dots.push(
         <li>
           <a
             href='/#'
-            onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
+            onClick={event => {
+              event.preventDefault();
+              return this.leftHandlePageChange(i);
+            }}
+            className={i === leftActivePage && styles.active}
           >
             page {i}
           </a>
@@ -45,43 +143,23 @@ class Promote extends React.Component {
                   <ul>{dots}</ul>
                 </div>
               </div>
-              <Swipeable>
-                {categoryProducts.map(item => (
-                  <div key={item.id}>
+              <Swipeable
+                activePage={this.state.leftActivePage}
+                rightAction={this.leftHandleRightAction}
+                leftAction={this.leftHandleLeftAction}
+              >
+                {this.categoryProducts.map(item => (
+                  <div
+                    key={item.id}
+                    className={this.state.leftFade ? styles.fadeOut : styles.fadeIn}
+                  >
                     <HotDeal {...item} />
                   </div>
                 ))}
               </Swipeable>
             </div>
             <div className={'col-8 ' + styles.rightPanel}>
-              <div className={styles.swipe}>
-                <Swipeable>
-                  {banners.map(item => (
-                    <div key={item.id} className={styles.image}>
-                      <img src={item.url} alt={item.name} />
-                      <div className={styles.imageHover}>
-                        <div className={styles.title}>
-                          <h4>
-                            indoor <span>Furniture</span>
-                          </h4>
-                          <div className={styles.subtitle}>
-                            save up to 50% of all furniture
-                          </div>
-                        </div>
-                        <Button className={styles.shopNow}>SHOP NOW</Button>
-                      </div>
-                    </div>
-                  ))}
-                </Swipeable>
-              </div>
-              <div>
-                <Button className={styles.button} variant='small'>
-                  <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
-                </Button>
-                <Button className={styles.button} variant='small'>
-                  <FontAwesomeIcon icon={faAngleRight}></FontAwesomeIcon>
-                </Button>
-              </div>
+              <SimpleGallery />
             </div>
           </div>
         </div>
@@ -102,7 +180,6 @@ Promote.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
-  banners: PropTypes.array,
 };
 
 export default Promote;
