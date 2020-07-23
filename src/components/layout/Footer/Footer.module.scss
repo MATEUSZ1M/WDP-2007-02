@@ -46,6 +46,7 @@
 
   .bottomBar {
     background-color: $footer-claim-bg;
+    height: 185px;
 
     :global(.container) > :global(.row) {
       height: 95px;
@@ -83,5 +84,19 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .menuWrapper,
+  .optionsList {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  img {
+    padding-left: 20%;
+    padding-right: 20%;
   }
 }

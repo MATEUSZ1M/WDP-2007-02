@@ -3,56 +3,107 @@ import PropTypes from 'prop-types';
 import styles from './Feedback.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
+import Swipeable from '../../common/Swipeable/Swipeable';
 
 class Feedback extends React.Component {
+  state = {
+    activePage: 0,
+    fade: false,
+  };
+
+  handlePageChange(newPage) {
+    this.setState({ fade: true });
+    setTimeout(
+      () => this.setState({ activePage: newPage, fade: false, manualPageChange: true }),
+      100
+    );
+  }
+
+  handleRightAction = () => {
+    const { activePage, manualPageChange } = this.state;
+    if (manualPageChange) {
+      this.setState({ manualPageChange: false });
+    } else if (activePage > 0) {
+      this.setState({ activePage: activePage - 1 });
+    }
+  };
+
+  handleLeftAction = () => {
+    const { activePage, manualPageChange } = this.state;
+    if (manualPageChange) {
+      this.setState({ manualPageChange: false });
+    } else {
+      this.setState({ activePage: activePage + 1 });
+    }
+  };
+
   render() {
     const { feedbacks } = this.props;
+    const { activePage, fade } = this.state;
+
+    const dots = [];
+    for (let i = 0; i < feedbacks.length; i++) {
+      dots.push(
+        <li>
+          <a
+            href='/#'
+            onClick={event => {
+              event.preventDefault();
+              return this.handlePageChange(i);
+            }}
+            className={i === activePage && styles.active}
+          >
+            page {i}
+          </a>
+        </li>
+      );
+    }
+
     return (
       <div className={styles.root}>
-        {feedbacks[0] && (
+        {feedbacks && (
           <div className='container'>
             <div className={styles.panel}>
               <div className='row no-gutters align-items-end'>
                 <div className={'col-auto ' + styles.heading}>
                   <h3>Client feedback</h3>
                 </div>
-                <div className={'col-auto ' + styles.dots}>
-                  <ul>
-                    <li>
-                      <a className={styles.active} href='#'>
-                        {' '}
-                      </a>
-                    </li>
-                    <li>
-                      <a href='#'> </a>
-                    </li>
-                    <li>
-                      <a href='#'> </a>
-                    </li>
-                  </ul>
+                <div className={'col-12 col-lg-auto ' + styles.dots}>
+                  <ul>{dots}</ul>
                 </div>
               </div>
             </div>
-            <div className='row'>
-              <div className={'col ' + styles.quote}>
-                <FontAwesomeIcon
-                  icon={faQuoteRight}
-                  className={styles.quotes}
-                ></FontAwesomeIcon>
-                <blockquote className={styles.feedback}>
-                  {feedbacks[0].opinion}
-                </blockquote>
-                <div className={styles.user}>
-                  <div className={styles.userImage}>
-                    <img src={feedbacks[0].image} alt={feedbacks[0].status}></img>
-                  </div>
-                  <div className={styles.name}>
-                    <h4>{feedbacks[0].name}</h4>
-                    <p>{feedbacks[0].status}</p>
+            <Swipeable
+              activePage={this.state.activePage}
+              rightAction={this.handleRightAction}
+              leftAction={this.handleLeftAction}
+            >
+              {feedbacks.map(item => (
+                <div
+                  className={'row ml-0 ' + (fade ? styles.fadeOut : styles.fadeIn)}
+                  key={item.id}
+                >
+                  <div className={'col ' + styles.quote}>
+                    <FontAwesomeIcon
+                      icon={faQuoteRight}
+                      className={styles.quotes}
+                    ></FontAwesomeIcon>
+                    <blockquote key={item.id} className={styles.feedback}>
+                      {item.opinion}
+                    </blockquote>
+                    <div className={styles.user}>
+                      <div className={styles.userImage}>
+                        <img src={item.image} alt={item.status}></img>
+                      </div>
+                      <div className={styles.name}>
+                        <h4>{item.name}</h4>
+                        <p>{item.status}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              ))}
+            </Swipeable>
           </div>
         )}
       </div>

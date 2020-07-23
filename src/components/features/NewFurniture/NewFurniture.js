@@ -61,7 +61,8 @@ class NewFurniture extends React.Component {
     const { activeCategory, activePage, fade } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const elementsPerDevice = device === 'mobile' ? 2 : device === 'tablet' ? 3 : 8;
+    const elementsPerDevice =
+      device === 'smobile' ? 1 : device === 'mobile' ? 2 : device === 'tablet' ? 3 : 8;
 
     const pagesCount = Math.ceil(categoryProducts.length / elementsPerDevice);
 
@@ -70,6 +71,7 @@ class NewFurniture extends React.Component {
       dots.push(
         <li>
           <a
+            href='/#'
             onClick={() => this.handlePageChange(i)}
             className={i === activePage && styles.active}
           >
@@ -110,6 +112,7 @@ class NewFurniture extends React.Component {
                   {categories.map(item => (
                     <li key={item.id}>
                       <a
+                        href='/#'
                         className={item.id === activeCategory && styles.active}
                         onClick={() => this.handleCategoryChange(item.id)}
                       >

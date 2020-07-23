@@ -43,14 +43,15 @@
 
 .dots {
   position: absolute;
-  right: 0;
   top: 0;
+  right: 0;
+  cursor: pointer;
 
   ul {
     margin: 0;
     padding: 0 0 0 1rem;
     list-style: none;
-    background-color: $color-light;
+    background-color: $pureWhite;
     transform: translateY(15px);
 
     li {
@@ -62,7 +63,7 @@
         width: 13px;
         height: 13px;
         border-radius: 6px;
-        background-color: $newFurniture-dots-bg;
+        background-color: $white;
         font-size: 0;
 
         &.active,

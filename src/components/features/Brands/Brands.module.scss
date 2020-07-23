@@ -1,27 +1,27 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
 
 .root {
   .wrapper {
-    padding: 60px 0;
     display: flex;
     height: 140px;
     width: 100%;
     margin: 60px auto;
-    border-top: 2px solid $darkWhite;
-    border-bottom: 2px solid $darkWhite;
+    border-top: 2px solid $brands-border-color;
+    border-bottom: 2px solid $brands-border-color;
     align-items: center;
+    justify-content: space-between;
 
     .control {
-      height: 92px;
+      height: 90px;
       width: 30px;
-      background: $lightBlack;
+      background: $brands-control-buton;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 15px;
 
       .icon {
-        color: $white;
+        color: $brands-icon-color;
         font-size: 15px;
       }
 
@@ -35,20 +35,33 @@
     }
 
     .logoBox {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      padding: 0 30px;
+      width: 90%;
+      margin: 0 auto;
+      height: 90px;
+    }
+  }
 
-      .logo {
-        height: 92px;
-        width: 142px;
-        border: 2px solid $darkWhite;
-        padding: 10px;
+  .logoFrame {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 
-        img {
-          object-fit: contain;
-        }
+    .logo {
+      border: 2px solid $brands-border-color;
+      padding: 10px;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .root {
+    .wrapper {
+      .logoBox {
+        width: 80%;
       }
     }
   }

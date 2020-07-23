@@ -18,13 +18,18 @@ export default function reducer(statePart = [], action = {}) {
       const breakpoints = {
         tablet: 992,
         mobile: 768,
+        smobile: 375,
       };
 
       if (action.payload >= breakpoints.tablet) {
         return 'desktop';
       } else if (action.payload >= breakpoints.mobile) {
         return 'tablet';
-      } else return 'mobile';
+      } else if (action.payload >= breakpoints.smobile) {
+        return 'mobile';
+      } else {
+        return 'smobile';
+      }
     }
     default:
       return statePart;
