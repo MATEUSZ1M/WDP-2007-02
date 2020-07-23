@@ -5,6 +5,7 @@
 
   .panel {
     position: relative;
+    margin-bottom: 30px;
 
     :global(.row) > * {
       border-bottom: 4px solid $lightGray;
@@ -100,5 +101,56 @@
 
   100% {
     opacity: 0;
+  }
+}
+
+@media (max-width: $desktop-breakpoint) {
+  .root .panel {
+    .heading h3 {
+      font-size: 16px;
+    }
+
+    .menu {
+      text-align: right;
+
+      ul li {
+        font-weight: 400;
+
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .dots {
+      position: relative;
+      border: none;
+
+      ul {
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        background-color: inherit;
+
+        li {
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .root .panelBar {
+    .menu {
+      text-align: left;
+      border: none;
+
+      ul li {
+        margin: 0;
+        padding: 10px 10px 0 0;
+        border-bottom: 4px solid $newFurniture-border;
+      }
+    }
   }
 }
