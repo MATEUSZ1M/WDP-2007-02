@@ -1711,6 +1711,7 @@ const initialState = {
       comments: 7,
       text:
         'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+      category: 'post',
     },
     {
       id: 1,
@@ -1722,6 +1723,7 @@ const initialState = {
       comments: 5,
       text:
         'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+      category: 'post',
     },
     {
       id: 2,
@@ -1733,6 +1735,7 @@ const initialState = {
       comments: 2,
       text:
         'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+      category: 'post',
     },
     {
       id: 3,
@@ -1744,6 +1747,7 @@ const initialState = {
       comments: 5,
       text:
         'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+      category: 'post',
     },
     {
       id: 4,
@@ -1755,6 +1759,7 @@ const initialState = {
       comments: 7,
       text:
         'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+      category: 'post',
     },
     {
       id: 5,
@@ -1766,6 +1771,7 @@ const initialState = {
       comments: 11,
       text:
         'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+      category: 'post',
     },
     {
       id: 6,
@@ -1777,6 +1783,7 @@ const initialState = {
       comments: 7,
       text:
         'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+      category: 'post',
     },
     {
       id: 7,
@@ -1788,6 +1795,7 @@ const initialState = {
       comments: 47,
       text:
         'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+      category: 'post',
     },
     {
       id: 8,
@@ -1799,6 +1807,7 @@ const initialState = {
       comments: 123,
       text:
         'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+      category: 'post',
     },
   ],
 };

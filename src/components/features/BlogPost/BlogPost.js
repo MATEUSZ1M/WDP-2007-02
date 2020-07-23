@@ -36,6 +36,12 @@ class BlogPost extends React.Component {
     }
   };
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.device !== this.props.device) {
+      this.setState({ activePage: 0 });
+    }
+  }
+
   render() {
     const { posts, device } = this.props;
     const { activePage, fade } = this.state;
@@ -49,7 +55,11 @@ class BlogPost extends React.Component {
       dots.push(
         <li>
           <a
-            onClick={() => this.handlePageChange(i)}
+            href='/#'
+            onClick={event => {
+              event.preventDefault();
+              return this.handlePageChange(i);
+            }}
             className={i === activePage && styles.active}
           >
             page {i}
@@ -68,7 +78,7 @@ class BlogPost extends React.Component {
           {posts
             .slice(page * elementsPerDevice, (page + 1) * elementsPerDevice)
             .map(post => (
-              <div className='col-6 col-md-4 col-lg-4' key={post.id}>
+              <div className='col-sm-12 col-md-6 col-lg-4' key={post.id}>
                 <Blog {...post} key={post.id} />
               </div>
             ))}
@@ -108,4 +118,9 @@ BlogPost.propTypes = {
   posts: PropTypes.array,
   device: PropTypes.string,
 };
+
+BlogPost.defaultProps = {
+  posts: [],
+};
+
 export default BlogPost;
