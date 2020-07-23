@@ -45,9 +45,7 @@ class BlogPost extends React.Component {
   render() {
     const { posts, device } = this.props;
     const { activePage, fade } = this.state;
-
     const elementsPerDevice = device === 'mobile' ? 1 : device === 'tablet' ? 2 : 3;
-
     const pagesCount = Math.ceil(posts.length / elementsPerDevice);
 
     const dots = [];
@@ -79,7 +77,7 @@ class BlogPost extends React.Component {
             .slice(page * elementsPerDevice, (page + 1) * elementsPerDevice)
             .map(post => (
               <div className='col-sm-12 col-md-6 col-lg-4' key={post.id}>
-                <Blog {...post} key={post.id} />
+                <Blog {...post} />
               </div>
             ))}
         </div>
@@ -117,10 +115,6 @@ class BlogPost extends React.Component {
 BlogPost.propTypes = {
   posts: PropTypes.array,
   device: PropTypes.string,
-};
-
-BlogPost.defaultProps = {
-  posts: [],
 };
 
 export default BlogPost;
