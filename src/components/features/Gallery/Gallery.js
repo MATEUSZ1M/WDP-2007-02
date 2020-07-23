@@ -128,7 +128,7 @@ class Gallery extends React.Component {
       <div className={styles.root}>
         <div className='container'>
           <div className='row'>
-            <div className={'col-6 ' + styles.leftPanel}>
+            <div className={'col-sm-12 col-lg-6 ' + styles.leftPanel}>
               <div className={styles.heading}>
                 <h3>Furniture gallery</h3>
               </div>
@@ -237,7 +237,7 @@ class Gallery extends React.Component {
                 </div>
               </div>
             </div>
-            <div className={'col-6 ' + styles.rightPanel}>
+            <div className={'col-lg-6 ' + styles.rightPanel}>
               <div className={styles.photo}>
                 <img
                   src='https://i.postimg.cc/G2W07cfW/bristique-5.jpg'
