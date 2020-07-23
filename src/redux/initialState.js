@@ -1734,6 +1734,72 @@ const initialState = {
       text:
         'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
     },
+    {
+      id: 3,
+      image:
+        'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      imageTitle: 'image',
+      date: '13 Feb 2020',
+      title: 'New desings',
+      comments: 5,
+      text:
+        'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+    },
+    {
+      id: 4,
+      image:
+        'https://images.pexels.com/photos/545012/pexels-photo-545012.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      imageTitle: 'image',
+      date: '16 Jul 2020',
+      title: 'Beds, beds, beds',
+      comments: 7,
+      text:
+        'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+    },
+    {
+      id: 5,
+      image:
+        'https://images.pexels.com/photos/212269/pexels-photo-212269.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      imageTitle: 'image',
+      date: '17 Jul 2020',
+      title: 'Comfortable',
+      comments: 11,
+      text:
+        'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+    },
+    {
+      id: 6,
+      image:
+        'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      imageTitle: 'image',
+      date: '13 Feb 2020',
+      title: 'New desings',
+      comments: 7,
+      text:
+        'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+    },
+    {
+      id: 7,
+      image:
+        'https://images.pexels.com/photos/545012/pexels-photo-545012.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      imageTitle: 'image',
+      date: '16 Jul 2020',
+      title: 'Beds, beds, beds',
+      comments: 47,
+      text:
+        'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+    },
+    {
+      id: 8,
+      image:
+        'https://images.pexels.com/photos/212269/pexels-photo-212269.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      imageTitle: 'image',
+      date: '17 Jul 2020',
+      title: 'Comfortable',
+      comments: 123,
+      text:
+        'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will. ',
+    },
   ],
   galleryCategory: [
     {
