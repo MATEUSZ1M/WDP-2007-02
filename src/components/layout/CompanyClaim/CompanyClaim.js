@@ -5,6 +5,7 @@ import styles from './CompanyClaim.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMobileAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const CompanyClaim = () => (
   <div className={styles.root}>
@@ -17,9 +18,9 @@ const CompanyClaim = () => (
           </p>
         </div>
         <div className={`col text-md-center ${styles.logo}`}>
-          <a href='/#'>
+          <Link to='/'>
             <img src='/images/logo.png' alt='Bazar' />
-          </a>
+          </Link>
         </div>
         <div className={`col text-md-right ${styles.cart}`}>
           <a href='/#' className={styles.cartBox}>
