@@ -39,7 +39,9 @@ const ProductBox = ({
         </div>
       </div>
       <div className={styles.content}>
-        <h5>{name}</h5>
+        <Link to={`product/${id}`}>
+          <h5>{name}</h5>
+        </Link>
         <Stars id={id} stars={stars} userStars={userStars} />
       </div>
       <div className={styles.line}></div>

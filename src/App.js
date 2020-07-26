@@ -20,7 +20,7 @@ const App = () => (
           <Route exact path={'/'} component={Homepage} />
           <Route exact path={'/shop/:categoryId'} component={ProductList} />
           <Route path='/product/:id' render={props => <ProductPage {...props} />} />
-          <Route path='*' component={NotFound} />
+          <Route component={NotFound} />
         </Switch>
       </MainLayout>
     </BrowserRouter>

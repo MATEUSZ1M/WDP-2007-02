@@ -20,13 +20,6 @@ export const getSale = ({ products }) =>
 export const getTopRated = ({ products }) =>
   products.filter(product => product.userStars > 2);
 
-export const getProductById = ({ products }, productId) => {
-  const filtered = products.filter(product => product.id === productId);
-  // TODO - filter trips by tripId
-  console.log('filtering products by productId:', productId, 'filtered:', filtered);
-  return filtered.length ? filtered[0] : { error: true };
-};
-
 /* action name creator */
 const reducerName = 'product';
 const createActionName = name => `app/${reducerName}/${name}`;
