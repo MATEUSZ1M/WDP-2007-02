@@ -1,5 +1,241 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  padding: $base-padding 0;
+  font-size: 0.85rem;
+
+  .verticalList {
+    display: flex;
+    list-style: none;
+
+    li {
+      padding-right: ($base-padding / 2);
+    }
+  }
+
+  .number {
+    padding: 5px 20px;
+  }
+
+  h5 {
+    font-size: 1em;
+    padding: 0 ($base-padding / 2) 0 0;
+  }
+
+  span {
+    text-transform: capitalize;
+  }
+
+  .price,
+  .oldPrice {
+    font-size: 25px;
+    padding: ($base-padding/2);
+  }
+
+  .oldPrice {
+    text-decoration: line-through;
+    font-style: italic;
+    color: $footer-text;
+    font-weight: 400;
+  }
+
+  .button {
+    background: $color-light;
+
+    &:hover {
+      background: $primary;
+    }
+  }
+
+  .socialM {
+    padding-left: 5px;
+  }
+
+  .buttonWrapperS a {
+    font-weight: 600;
+
+    &:first-child {
+      &:hover {
+        background: #4267b2;
+      }
+    }
+
+    &:nth-child(2) {
+      &:hover {
+        background: #1da1f2;
+      }
+    }
+
+    &:nth-child(3) {
+      &:hover {
+        background: #db4437;
+      }
+    }
+
+    &:nth-child(4) {
+      &:hover {
+        background: #bd081c;
+      }
+    }
+
+    &:nth-child(5) {
+      &:hover {
+        background: #2867b2;
+      }
+    }
+  }
+
+  .buttonRew {
+    padding-left: $base-padding;
+    color: $text-color;
+  }
+
+  .buttonCart {
+    background: $primary;
+    color: $color-light;
+    border-color: $primary;
+
+    &:hover {
+      background: $color-light;
+      color: $primary;
+    }
+  }
+
+  /* Hero */
+  .heroProduct {
+    background: $footer-bg;
+    color: $footer-text;
+    height: 30vh;
+    z-index: -10;
+    position: relative;
+  }
+
+  .heroWrapper {
+    display: flex;
+    align-items: baseline;
+    height: 100px;
+    padding: 40px 0;
+  }
+
+  .heroHeader {
+    margin-right: auto;
+    text-transform: uppercase;
+  }
+
+  /* Main */
+  .mainContent {
+    border: solid 1px $featurebox-border;
+    display: flex;
+    top: -15vh;
+    position: relative;
+    background: $color-light;
+    padding: $base-padding;
+
+    .mainLeft {
+      padding: 0;
+
+      .productBox {
+        background-color: $productbox-photo-bg;
+        height: 380px;
+        min-width: 380px;
+        position: relative;
+
+        img {
+          height: 380px;
+          width: 100%;
+          object-fit: cover;
+          box-shadow: -1px -1px 4px -1px $form-border-color;
+        }
+
+        a {
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+        }
+      }
+
+      .gallery {
+        margin-top: 20px;
+        height: 120px;
+        overflow: hidden;
+
+        .galleryWrapper {
+          display: flex;
+          position: relative;
+          height: 120px;
+
+          .buttonWrapperL,
+          .buttonWrapperR {
+            position: absolute;
+            z-index: 10;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+
+          .buttonWrapperL {
+            left: 0;
+          }
+
+          .buttonWrapperR {
+            right: 0;
+          }
+
+          .galleryItem {
+            background: $gallery-bg;
+            position: relative;
+            padding: 5px;
+            margin: 0 auto;
+
+            img {
+              object-fit: cover;
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .mainRight {
+      padding-left: $base-padding;
+
+      .mainSection,
+      .mainSectionCol {
+        display: flex;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      .mainSection {
+        align-items: baseline;
+        border-bottom: solid 1px $featurebox-border;
+        padding: $base-padding 0;
+
+        h3 {
+          margin-right: auto;
+        }
+      }
+
+      .mainSectionCol {
+        flex-direction: column;
+        padding-top: $base-padding;
+        border-bottom: solid 1px $featurebox-border;
+
+        span {
+          color: $footer-text;
+        }
+
+        .buttonWrapper {
+          padding-bottom: $base-padding;
+          display: flex;
+          align-items: center;
+        }
+
+        .textWrapper {
+          display: flex;
+        }
+      }
+    }
+  }
 }
