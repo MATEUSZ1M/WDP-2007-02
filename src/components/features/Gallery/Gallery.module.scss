@@ -365,6 +365,14 @@
   }
 }
 
+@media (max-width: $mobile-breakpoint) {
+  .root {
+    img {
+      padding: 0;
+    }
+  }
+}
+
 @media (max-width: $desktop-breakpoint) {
   .root {
     .rightPanel {
