@@ -136,10 +136,10 @@ class Promote extends React.Component {
       <div className={styles.root}>
         <div className='container'>
           <div className={'row ' + styles.promote}>
-            <div className={'col-4 ' + styles.leftPanel}>
+            <div className={'col-md-4 ' + styles.leftPanel}>
               <div className={'col-auto ' + styles.heading}>
                 <h3>Hot Deals</h3>
-                <div className={'col-12 col-lg-auto ' + styles.dots}>
+                <div className={'col-md-7 col-lg-auto ' + styles.dots}>
                   <ul>{dots}</ul>
                 </div>
               </div>
@@ -158,7 +158,7 @@ class Promote extends React.Component {
                 ))}
               </Swipeable>
             </div>
-            <div className={'col-8 ' + styles.rightPanel}>
+            <div className={'col-sm-12 col-md-8 ' + styles.rightPanel}>
               <SimpleGallery />
             </div>
           </div>

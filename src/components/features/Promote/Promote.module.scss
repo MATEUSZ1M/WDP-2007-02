@@ -105,3 +105,11 @@
     opacity: 0;
   }
 }
+
+@media (max-width: $tablet-breakpoint) {
+  .root {
+    .leftPanel {
+      display: none;
+    }
+  }
+}
