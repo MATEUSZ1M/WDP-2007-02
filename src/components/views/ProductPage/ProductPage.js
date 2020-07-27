@@ -14,11 +14,19 @@ import {
   faMinus,
   faExpandArrowsAlt,
 } from '@fortawesome/free-solid-svg-icons';
+import {
+  faFacebook,
+  faTwitter,
+  faGoogle,
+  faPinterest,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons';
+
 import Button from '../../common/Button/Button';
 import Stars from '../../common/Stars/Stars';
 import Swipeable from '../../common/Swipeable/Swipeable';
 
-const ProductPage = ({ error, name, price, oldPrice, img, category }) => {
+const ProductPage = ({ error, name, price, oldPrice, img, category, id }) => {
   if (error) return <NotFound />;
   else
     return (
@@ -64,12 +72,12 @@ const ProductPage = ({ error, name, price, oldPrice, img, category }) => {
                   </div>
                 </Swipeable>
                 <div className={styles.buttonWrapperL}>
-                  <Button variant='outline'>
+                  <Button className={styles.button} variant='outline'>
                     <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
                   </Button>
                 </div>
                 <div className={styles.buttonWrapperR}>
-                  <Button variant='outline'>
+                  <Button className={styles.button} variant='outline'>
                     <FontAwesomeIcon icon={faAngleRight}></FontAwesomeIcon>
                   </Button>
                 </div>
@@ -81,21 +89,21 @@ const ProductPage = ({ error, name, price, oldPrice, img, category }) => {
               <h3>{name}</h3>
               <ul className={styles.verticalList}>
                 <li>
-                  <Button variant='outline'>
+                  <Button className={styles.button} variant='outline'>
                     <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
                   </Button>
                 </li>
                 <li>
-                  <Button variant='outline'>
+                  <Button className={styles.button} variant='outline'>
                     <FontAwesomeIcon icon={faAngleRight}></FontAwesomeIcon>
                   </Button>
                 </li>
               </ul>
             </div>
             <div className={styles.mainSection}>
-              <Stars></Stars>
-              <Button>(0 reviews)</Button>
-              <Button>Add Your Review</Button>
+              <Stars>{id}</Stars>
+              <Button className={styles.buttonRew}>(0 reviews)</Button>
+              <Button className={styles.buttonRew}>Add Your Review</Button>
             </div>
             <div className={styles.mainSection}>
               <div className={styles.oldPrice} noHover>
@@ -107,7 +115,7 @@ const ProductPage = ({ error, name, price, oldPrice, img, category }) => {
             </div>
             <div className={styles.mainSectionCol}>
               <div className={styles.buttonWrapper}>
-                <Button className={styles.button} variant='outline'>
+                <Button className={styles.buttonCart} variant='outline'>
                   <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon>
                   Add to cart
                 </Button>
@@ -152,21 +160,26 @@ const ProductPage = ({ error, name, price, oldPrice, img, category }) => {
               </div>
             </div>
             <div className={styles.mainSection}>
-              <div className={styles.buttonWrapper}>
+              <div className={styles.buttonWrapperS}>
                 <Button className={styles.button} variant='outline'>
-                  facebook
+                  <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
+                  <span className={styles.socialM}>facebook</span>
                 </Button>
                 <Button className={styles.button} variant='outline'>
-                  twitter
+                  <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
+                  <span className={styles.socialM}>twitter</span>
                 </Button>
                 <Button className={styles.button} variant='outline'>
-                  Google+
+                  <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>
+                  <span className={styles.socialM}>Google +</span>
                 </Button>
                 <Button className={styles.button} variant='outline'>
-                  Pinterest
+                  <FontAwesomeIcon icon={faPinterest}></FontAwesomeIcon>
+                  <span className={styles.socialM}>Pinterest</span>
                 </Button>
                 <Button className={styles.button} variant='outline'>
-                  LinkedIn
+                  <FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon>
+                  <span className={styles.socialM}>Linkedin</span>
                 </Button>
               </div>
             </div>

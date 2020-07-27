@@ -1,6 +1,8 @@
 @import "../../../styles/settings.scss";
 
 .root {
+  font-size: 0.85rem;
+
   .verticalList {
     display: flex;
     list-style: none;
@@ -38,12 +40,70 @@
 
   .button {
     background: $color-light;
+
+    &:hover {
+      background: $primary;
+    }
+  }
+
+  .socialM {
+    padding-left: 5px;
+  }
+
+  .buttonWrapperS a {
+    font-weight: 600;
+
+    &:first-child {
+      &:hover {
+        background: #4267b2;
+      }
+    }
+
+    &:nth-child(2) {
+      &:hover {
+        background: #1da1f2;
+      }
+    }
+
+    &:nth-child(3) {
+      &:hover {
+        background: #db4437;
+      }
+    }
+
+    &:nth-child(4) {
+      &:hover {
+        background: #bd081c;
+      }
+    }
+
+    &:nth-child(5) {
+      &:hover {
+        background: #2867b2;
+      }
+    }
+  }
+
+  .buttonRew {
+    padding-left: $base-padding;
+    color: $text-color;
+  }
+
+  .buttonCart {
+    background: $primary;
+    color: $color-light;
+    border-color: $primary;
+
+    &:hover {
+      background: $color-light;
+      color: $primary;
+    }
   }
 
   /* Hero */
   .heroProduct {
-    background: $featurebox-border;
-    color: $lightSilver;
+    background: $footer-bg;
+    color: $footer-text;
     height: 30vh;
     z-index: -10;
     position: relative;
@@ -83,6 +143,7 @@
           height: 380px;
           width: 100%;
           object-fit: cover;
+          box-shadow: -1px -1px 4px -1px $form-border-color;
         }
 
         a {
@@ -93,7 +154,7 @@
       }
 
       .gallery {
-        margin-top: 10px;
+        margin-top: 20px;
         height: 120px;
         overflow: hidden;
 
@@ -161,7 +222,6 @@
         padding-top: $base-padding;
         border-bottom: solid 1px $featurebox-border;
 
-        p,
         span {
           color: $footer-text;
         }
